@@ -15,7 +15,14 @@ export default function ProjectsPage() {
         out some of my featured personal projects! 📽️
       </Subtitle>
       <SpotlightContainer>
-        <TextArea width={340} height={225}>
+        <Image
+          src='/imgs/Spotlight-Imgs.png'
+          width={500}
+          height={300}
+          alt='Phone and Laptop'
+          style={{ marginLeft: '40px' }}
+        />
+        <TextArea width={340} height={255} margin='10px 60px 0 auto'>
           <ProjectTitle>Spotlight</ProjectTitle>
           <ProjectText>
             Think Expedia.com for concert and sports tickets in the U.S., but in
@@ -36,6 +43,12 @@ export default function ProjectsPage() {
           </ProjectText>
           <ProjectLink style={{ marginLeft: '35px' }}>GitHub</ProjectLink>
         </TextArea>
+        <Image
+          src='/imgs/Hi-Patty-Img.png'
+          width={550}
+          height={400}
+          alt='StoryBook Browser'
+        />
       </HiPattyContainer>
       <ASLContainer>
         <TextArea width={370} height={230} hasBlackText>
@@ -62,7 +75,7 @@ export default function ProjectsPage() {
         </TextArea>
       </YelpCampContainer>
       <CTA>
-        <Image src='/imgs/robot.png' height={330} width={370} alt='Robot' />
+        <Image src='/imgs/Robot.png' height={330} width={370} alt='Robot' />
       </CTA>
     </>
   );
@@ -73,6 +86,8 @@ const projectSkeleton = `
     height: 340px;
     border-radius: 30px;
     margin-bottom: 85px;
+    display: flex;
+    align-items: center;
 `;
 
 const SpotlightContainer = styled.div`
@@ -98,6 +113,7 @@ const YelpCampContainer = styled.div`
 interface ITextArea {
   height: number;
   width: number;
+  margin?: string;
   hasBlackText?: boolean;
 }
 
@@ -105,6 +121,7 @@ const TextArea = styled.div<ITextArea>`
   width: ${(props) => props.width}px;
   height: ${(props) => props.height}px;
   color: ${(props) => (props.hasBlackText ? '#202020' : '#ffffff')} !important;
+  margin: ${(props) => props.margin};
 `;
 
 const ProjectTitle = styled.h2`

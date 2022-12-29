@@ -13,12 +13,36 @@ export default function HomePage() {
           <Title>Scott Susanto</Title>
           <Subtitle>
             I am
-            <TypedStrings strings={typedStrings} />
+            <TypedStrings id='typed-subtitle' strings={typedStrings} loop />
           </Subtitle>
         </TitleAndSubtitle>
         <Image src='/imgs/DP.png' height={255} width={220} alt='Handsome Lad' />
       </Hero>
-      <About></About>
+      <About>
+        <Terminal>
+          <Image
+            src='imgs/Arrow.svg'
+            height={47}
+            width={125}
+            alt='Terminal Arrow'
+          />
+          <Code>
+            <TypedStrings id='typed-whoami' strings={['whoami?']} />
+          </Code>
+        </Terminal>
+        <AboutText>
+          🚀 Lorem ipsum dolor, sit amet consectetur adipisicing elit. 🔮
+          Voluptate voluptatibus aliquam aperiam est corrupti fugiat, voluptas
+          rerum excepturi sint in non quae cum fuga! Blanditiis dolor maiores
+          veritatis consequuntur nisi! ❄️
+        </AboutText>
+        <AboutText>
+          ✈️ Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti,
+          ab esse sint veniam deserunt tempore error earum ipsa magnam sapiente
+          autem expedita provident rerum beatae quo maxime quibusdam aut
+          tenetur. 🔭
+        </AboutText>
+      </About>
     </>
   );
 }
@@ -56,9 +80,32 @@ const typedStrings = [
 ];
 
 const About = styled.section`
-  width: 1000px;
+  max-width: 100%;
   height: 360px;
   border-radius: 20px;
   background-color: #222632;
   margin: 35px auto;
+  padding: 45px 55px;
+`;
+
+const Terminal = styled.div`
+  width: 100%;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+`;
+
+const Code = styled.p`
+  font-size: 32px;
+  font-family: SourceCodePro;
+  font-weight: 400;
+  color: #89f398;
+  margin: 0 0 0 20px;
+`;
+
+const AboutText = styled.p`
+  font-size: 24px;
+  font-family: Kamerik;
+  font-weight: 400;
 `;

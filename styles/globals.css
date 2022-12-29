@@ -36,3 +36,9 @@ body {
     src: url('../public/fonts/ArticulatCF-DemiBold.otf');
     font-weight: 600;
 }
+
+@font-face {
+    font-family: 'SourceCodePro';
+    src: url('../public/fonts/Source\ Code\ Pro\ for\ Powerline.otf');
+    font-weight: 400;
+}

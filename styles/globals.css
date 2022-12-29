@@ -41,6 +41,12 @@ a {
 
 @font-face {
     font-family: 'Articulat';
+    src: url('../public/fonts/ArticulatCF-Regular.otf');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Articulat';
     src: url('../public/fonts/ArticulatCF-Medium.otf');
     font-weight: 500;
 }
@@ -49,6 +55,12 @@ a {
     font-family: 'Articulat';
     src: url('../public/fonts/ArticulatCF-DemiBold.otf');
     font-weight: 600;
+}
+
+@font-face {
+    font-family: 'Articulat';
+    src: url('../public/fonts/ArticulatCF-Bold.otf');
+    font-weight: 700;
 }
 
 @font-face {

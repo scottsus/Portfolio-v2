@@ -14,10 +14,53 @@ export default function ProjectsPage() {
         innovating a scrappy invention entirely from scratch? For that, check
         out some of my featured personal projects! 📽️
       </Subtitle>
-      <SpotlightContainer></SpotlightContainer>
-      <HiPattyContainer></HiPattyContainer>
-      <ASLContainer></ASLContainer>
-      <YelpCampContainer></YelpCampContainer>
+      <SpotlightContainer>
+        <TextArea width={340} height={225}>
+          <ProjectTitle>Spotlight</ProjectTitle>
+          <ProjectText>
+            Think Expedia.com for concert and sports tickets in the U.S., but in
+            the form of a chrome extension that automatically runs on checkout.
+          </ProjectText>
+          <Links>
+            <ProjectLink>GitHub</ProjectLink>
+            <ProjectLink>Pitch Deck</ProjectLink>
+          </Links>
+        </TextArea>
+      </SpotlightContainer>
+      <HiPattyContainer>
+        <TextArea width={260} height={210}>
+          <ProjectTitle>Hi Patty</ProjectTitle>
+          <ProjectText>
+            A simple website to log 1 - 3 appreciations of the day to remind me
+            to be grateful to my girlfriend
+          </ProjectText>
+          <ProjectLink style={{ marginLeft: '35px' }}>GitHub</ProjectLink>
+        </TextArea>
+      </HiPattyContainer>
+      <ASLContainer>
+        <TextArea width={370} height={230} hasBlackText>
+          <ProjectTitle>ASL to Text Bot</ProjectTitle>
+          <ProjectText>
+            A machine that captures an ASL hand sign and converts it into a
+            char, building a string used for communication with people
+            unfamiliar with ASL. Built using GrovePi.
+          </ProjectText>
+          <ProjectLink style={{ marginLeft: '35px' }}>GitHub</ProjectLink>
+        </TextArea>
+      </ASLContainer>
+      <YelpCampContainer>
+        <TextArea width={345} height={205} hasBlackText>
+          <ProjectTitle>YelpCamp</ProjectTitle>
+          <ProjectText>
+            Yelp but for camping grounds across the U.S. MongoDB, Express, EJS,
+            Node.
+          </ProjectText>
+          <Links>
+            <ProjectLink>GitHub</ProjectLink>
+            <ProjectLink>Pitch Deck</ProjectLink>
+          </Links>
+        </TextArea>
+      </YelpCampContainer>
       <CTA>
         <Image src='/imgs/robot.png' height={330} width={370} alt='Robot' />
       </CTA>
@@ -50,6 +93,44 @@ const ASLContainer = styled.div`
 const YelpCampContainer = styled.div`
   ${projectSkeleton}
   background: linear-gradient(101.52deg, #45EE75 -3.55%, #4D5FFC 103.61%);
+`;
+
+interface ITextArea {
+  height: number;
+  width: number;
+  hasBlackText?: boolean;
+}
+
+const TextArea = styled.div<ITextArea>`
+  width: ${(props) => props.width}px;
+  height: ${(props) => props.height}px;
+  color: ${(props) => (props.hasBlackText ? '#202020' : '#ffffff')} !important;
+`;
+
+const ProjectTitle = styled.h2`
+  font-size: 40px;
+  font-family: Kamerik, Arial;
+  font-weight: 700;
+`;
+
+const ProjectText = styled.p`
+  font-size: 21px;
+  font-family: Articulat, Arial;
+  font-weight: 400;
+  margin: 40px 0;
+`;
+
+const Links = styled.div`
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+`;
+
+const ProjectLink = styled.p`
+  font-size: 21px;
+  font-family: Articulat, Arial;
+  font-weight: 400;
+  text-decoration: underline;
 `;
 
 const CTA = styled.div`

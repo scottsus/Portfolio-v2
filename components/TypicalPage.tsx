@@ -12,4 +12,5 @@ export const Subtitle = styled.p`
   font-family: Articulat, Arial;
   font-weight: 400;
   color: #bcbcbc;
+  margin: 15px 0;
 `;

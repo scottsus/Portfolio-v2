@@ -43,20 +43,20 @@ export default function BlogPage() {
         <Blog>
           <BlogTitle>My thoughts on NextJS vs React/Express</BlogTitle>
           <BlogContent>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque
-            tempora in reprehenderit eaque nobis eum a cumque temporibus
-            voluptatem aliquam facilis sed, labore sint praesentium alias
-            voluptas optio dicta necessitatibus.
+            Express has been the ultimate Javascript framework for backend
+            applications. In fact, 80% of developers are unable to name a second
+            JS backend framework when asked, establishing the synonymy of
+            Express and the backend...
           </BlogContent>
           <ReadTime>3 min read</ReadTime>
         </Blog>
         <Blog>
           <BlogTitle>Computer Engineering & Computer Science</BlogTitle>
           <BlogContent>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore
-            adipisci perferendis autem labore, repellendus repellat, veniam
-            tempora, neque hic magni iste laboriosam facilis est fuga officiis
-            nisi architecto excepturi alias.
+            I was in it for the clout and prestige associated with a complete
+            mastery of both hardware and software, a shallow notion prided by
+            technologically deficient parents who don&apos;t know more. Now this
+            major has been my biggest regret...
           </BlogContent>
           <ReadTime>2 min read</ReadTime>
         </Blog>
@@ -65,10 +65,11 @@ export default function BlogPage() {
             WRIT 340, Emily Artiano, and Synchronous Classes
           </BlogTitle>
           <BlogContent>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. A similique
-            voluptates repellendus veritatis eos incidunt error beatae nemo
-            magni voluptatibus doloremque earum aspernatur deserunt sunt dicta,
-            nam quam suscipit expedita?
+            Solid writing skills are undoubtedly a fundamental part of human
+            expression, and USC definitely upholds this belief, with WRIT 340
+            being the Achilles&apos; Heel of the mega nerds whose only B+ in
+            their whole university comes from this class. But how much is too
+            much when Emily Artiano...
           </BlogContent>
           <ReadTime>4 min read</ReadTime>
         </Blog>
@@ -147,6 +148,7 @@ const BlogContent = styled.p`
   font-size: 21px;
   font-family: Articulat, Arial;
   font-weight: 400;
+  color: #bcbcbc;
   margin: 30px 0;
 `;
 
@@ -154,7 +156,7 @@ const ReadTime = styled.p`
   font-size: 21px;
   font-family: Articulat, Arial;
   font-weight: 400;
-  color: #eaeaea;
+  color: #ababab;
   margin-bottom: 0;
   margin-top: auto;
 `;

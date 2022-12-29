@@ -46,10 +46,7 @@ export default function GuestbookPage() {
   );
 }
 
-const GuestbookDiv = styled.div`
-  height: 95vh;
-  overflow: hidden;
-`;
+const GuestbookDiv = styled.div``;
 
 const MessageBox = styled.div`
   width: 85%;
@@ -89,9 +86,9 @@ const Disclaimer = styled.p`
 
 const Guestbook = styled.section`
   width: 100%;
-  height: 250px;
+  min-height: 250px;
   padding: 20px 0;
-  overflow-y: scroll;
+  margin-bottom: 40px;
 `;
 
 const Comment = styled.div`
@@ -110,5 +107,6 @@ const Metadata = styled.p`
   font-size: 18px;
   font-family: Articulat, Arial;
   font-weight: 400;
+  color: #bcbcbc;
   margin: 10px 0 0 10px;
 `;

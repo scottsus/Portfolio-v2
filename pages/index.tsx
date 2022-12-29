@@ -16,18 +16,18 @@ export default function HomePage() {
             <TypedStrings id='typed-subtitle' strings={typedStrings} loop />
           </Subtitle>
         </TitleAndSubtitle>
-        <Image src='/imgs/DP.png' height={255} width={220} alt='Handsome Lad' />
+        <Image src='/imgs/DP.png' width={220} height={255} alt='Handsome Lad' />
       </Hero>
       <About>
         <Terminal>
           <Image
             src='imgs/Arrow.svg'
-            height={47}
             width={125}
+            height={47}
             alt='Terminal Arrow'
           />
           <Code>
-            <TypedStrings id='typed-whoami' strings={['whoami?']} speed={200} />
+            <TypedStrings id='typed-whoami' strings={['whoami?']} />
           </Code>
         </Terminal>
         <AboutText>
@@ -43,6 +43,30 @@ export default function HomePage() {
           tenetur. 🔭
         </AboutText>
       </About>
+      <Experiences>
+        <SectionHeading>Prev SDE @</SectionHeading>
+        <CompanyLogos>
+          <Image src='/imgs/Amazon.png' width={122} height={90} alt='Amazon' />
+          <Image
+            src='/imgs/CarbonLink.png'
+            width={92}
+            height={90}
+            alt='CarbonLink'
+          />
+          <Image
+            src='/imgs/Sourcegraph.png'
+            width={89}
+            height={90}
+            alt='Sourcegraph'
+          />
+          <Image
+            src='/imgs/Snap-Fitness.png'
+            width={268}
+            height={90}
+            alt='Snap Fitness'
+          />
+        </CompanyLogos>
+      </Experiences>
     </>
   );
 }
@@ -108,4 +132,26 @@ const AboutText = styled.p`
   font-size: 24px;
   font-family: Kamerik;
   font-weight: 400;
+`;
+
+const Experiences = styled.section`
+  width: 100%;
+  height: 200px;
+  margin: 70px auto;
+`;
+
+const SectionHeading = styled.h2`
+  width: 100%;
+  font-size: 32px;
+  font-family: Articulat, Arial;
+  font-weight: 700;
+  margin: 0 auto 55px;
+  text-align: center;
+`;
+
+const CompanyLogos = styled.div`
+  width: 880px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
 `;

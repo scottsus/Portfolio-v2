@@ -32,8 +32,22 @@ export default function ProjectsPage() {
             the form of a chrome extension that automatically runs on checkout.
           </ProjectText>
           <Links>
-            <ProjectLink>GitHub</ProjectLink>
-            <ProjectLink>Pitch Deck</ProjectLink>
+            <ProjectLink>
+              <Link
+                href='https://github.com/susantoscott/spotlight/'
+                target='_blank'
+              >
+                GitHub
+              </Link>
+            </ProjectLink>
+            <ProjectLink>
+              <Link
+                href='https://www.figma.com/proto/CChEEnXpwmq3wLzM9r3t9I/Spotlight-Pitch-Deck?node-id=773%3A402&scaling=scale-down&page-id=773%3A313&starting-point-node-id=773%3A402'
+                target='_blank'
+              >
+                Pitch Deck
+              </Link>
+            </ProjectLink>
           </Links>
         </TextArea>
       </SpotlightContainer>
@@ -44,7 +58,14 @@ export default function ProjectsPage() {
             A simple website to log 1 - 3 appreciations of the day to remind me
             to be grateful to my girlfriend
           </ProjectText>
-          <ProjectLink style={{ marginLeft: '35px' }}>GitHub</ProjectLink>
+          <ProjectLink style={{ marginLeft: '35px' }}>
+            <Link
+              href='https://github.com/susantoscott/Hi-Patty'
+              target='_blank'
+            >
+              GitHub
+            </Link>
+          </ProjectLink>
         </TextArea>
         <Image
           src='/imgs/projects/Hi-Patty-Img.png'
@@ -74,7 +95,14 @@ export default function ProjectsPage() {
             char, building a string used for communication with people
             unfamiliar with ASL. Built using GrovePi.
           </ProjectText>
-          <ProjectLink style={{ marginLeft: '35px' }}>GitHub</ProjectLink>
+          <ProjectLink style={{ marginLeft: '35px' }}>
+            <Link
+              href='https://github.com/susantoscott/ASL-to-Text'
+              target='_blank'
+            >
+              GitHub
+            </Link>
+          </ProjectLink>
         </TextArea>
       </ASLContainer>
       <YelpCampContainer>
@@ -85,8 +113,22 @@ export default function ProjectsPage() {
             Node.
           </ProjectText>
           <Links>
-            <ProjectLink>GitHub</ProjectLink>
-            <ProjectLink>Pitch Deck</ProjectLink>
+            <ProjectLink>
+              <Link
+                href='https://github.com/susantoscott/YelpCamp'
+                target='_blank'
+              >
+                GitHub
+              </Link>
+            </ProjectLink>
+            <ProjectLink>
+              <Link
+                href='http://stormy-savannah-38066.herokuapp.com/'
+                target='_blank'
+              >
+                Website
+              </Link>
+            </ProjectLink>
           </Links>
         </TextArea>
         <Image

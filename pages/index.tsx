@@ -46,21 +46,26 @@ export default function HomePage() {
       <Experiences>
         <SectionHeading>Prev SDE @</SectionHeading>
         <CompanyLogos>
-          <Image src='/imgs/Amazon.png' width={122} height={90} alt='Amazon' />
           <Image
-            src='/imgs/CarbonLink.png'
+            src='/imgs/companies/Amazon.png'
+            width={122}
+            height={90}
+            alt='Amazon'
+          />
+          <Image
+            src='/imgs/companies/CarbonLink.png'
             width={92}
             height={90}
             alt='CarbonLink'
           />
           <Image
-            src='/imgs/Sourcegraph.png'
+            src='/imgs/companies/Sourcegraph.png'
             width={89}
             height={90}
             alt='Sourcegraph'
           />
           <Image
-            src='/imgs/Snap-Fitness.png'
+            src='/imgs/companies/Snap-Fitness.png'
             width={268}
             height={90}
             alt='Snap Fitness'

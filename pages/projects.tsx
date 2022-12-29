@@ -3,6 +3,9 @@ import styled from 'styled-components';
 import Navbar from '../components/Navbar';
 import { Title, Subtitle } from '../components/TypicalPage';
 import Image from 'next/image';
+import { faCalendar, faMailBulk } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Link from 'next/link';
 
 export default function ProjectsPage() {
   return (
@@ -16,7 +19,7 @@ export default function ProjectsPage() {
       </Subtitle>
       <SpotlightContainer>
         <Image
-          src='/imgs/Spotlight-Imgs.png'
+          src='/imgs/projects/Spotlight-Imgs.png'
           width={500}
           height={300}
           alt='Phone and Laptop'
@@ -35,7 +38,7 @@ export default function ProjectsPage() {
         </TextArea>
       </SpotlightContainer>
       <HiPattyContainer>
-        <TextArea width={260} height={210}>
+        <TextArea width={370} height={210} margin='0 0 0 80px'>
           <ProjectTitle>Hi Patty</ProjectTitle>
           <ProjectText>
             A simple website to log 1 - 3 appreciations of the day to remind me
@@ -44,14 +47,27 @@ export default function ProjectsPage() {
           <ProjectLink style={{ marginLeft: '35px' }}>GitHub</ProjectLink>
         </TextArea>
         <Image
-          src='/imgs/Hi-Patty-Img.png'
-          width={550}
-          height={400}
+          src='/imgs/projects/Hi-Patty-Img.png'
+          width={500}
+          height={325}
           alt='StoryBook Browser'
+          style={{
+            position: 'absolute',
+            top: '810px',
+            left: '870px',
+            borderRadius: '20px',
+          }}
         />
       </HiPattyContainer>
       <ASLContainer>
-        <TextArea width={370} height={230} hasBlackText>
+        <Image
+          src='/imgs/projects/ASL-Img.png'
+          width={540}
+          height={340}
+          alt='ASL to Text Render'
+          style={{ position: 'absolute', top: '1200px', left: '200px' }}
+        />
+        <TextArea width={400} height={250} margin='0 100px 0 auto' hasBlackText>
           <ProjectTitle>ASL to Text Bot</ProjectTitle>
           <ProjectText>
             A machine that captures an ASL hand sign and converts it into a
@@ -62,7 +78,7 @@ export default function ProjectsPage() {
         </TextArea>
       </ASLContainer>
       <YelpCampContainer>
-        <TextArea width={345} height={205} hasBlackText>
+        <TextArea width={345} height={215} margin='0 auto 0 60px' hasBlackText>
           <ProjectTitle>YelpCamp</ProjectTitle>
           <ProjectText>
             Yelp but for camping grounds across the U.S. MongoDB, Express, EJS,
@@ -73,9 +89,34 @@ export default function ProjectsPage() {
             <ProjectLink>Pitch Deck</ProjectLink>
           </Links>
         </TextArea>
+        <Image
+          src='/imgs/projects/Yelp-Img.png'
+          width={480}
+          height={280}
+          alt='YelpCamp Home Page'
+          style={{ position: 'absolute', top: '1710px', left: '780px' }}
+        />
       </YelpCampContainer>
       <CTA>
-        <Image src='/imgs/Robot.png' height={330} width={370} alt='Robot' />
+        <Image src='/imgs/Robot.png' height={330} width={330} alt='Robot' />
+        <CTAText>
+          <Cofounder>Be my cofounder for the next tech unicorn 🦄</Cofounder>
+          <Social>
+            📆 Pick a time on my{' '}
+            <Link
+              href='https://calendly.com/scottsus'
+              style={{ color: '#2951df' }}
+            >
+              Calendly
+            </Link>
+          </Social>
+          <Social>
+            📫 Reach out to my{' '}
+            <Link href='mailto::scottsus@usc.edu' style={{ color: '#2951df' }}>
+              GMail
+            </Link>
+          </Social>
+        </CTAText>
       </CTA>
     </>
   );
@@ -151,6 +192,35 @@ const ProjectLink = styled.p`
 `;
 
 const CTA = styled.div`
-  width: 80%;
+  width: 85%;
   height: 330px;
+  margin: 20px auto 60px;
+  display: flex;
+  align-items: center;
+`;
+
+const CTAText = styled.div`
+  width: 650px;
+  height: 330px;
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const Cofounder = styled.h3`
+  font-size: 30px;
+  font-family: Kamerik, Arial;
+  font-weight: 700;
+  text-align: center;
+  margin: 75px auto 35px;
+`;
+
+const Social = styled.p`
+  font-size: 24px;
+  font-family: Articulat, Arial;
+  font-weight: 400;
+  text-align: left;
+  width: 330px;
+  margin: 0 auto 5px;
 `;

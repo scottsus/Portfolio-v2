@@ -1,41 +1,45 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import Link from 'next/link';
 import { faMoon } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default function Navbar() {
-  const [activeID, setActiveID] = useState(0);
-  const handleIDs = (event: React.MouseEvent<HTMLInputElement>) => {
-    const target = event.target as HTMLInputElement;
-    setActiveID(parseInt(target.id));
-  };
-  const mouseEventHandler =
-    handleIDs as React.MouseEventHandler<HTMLButtonElement>;
+  const [activeURL, setActiveURL] = useState('');
+
+  useEffect(() => {
+    const hrefParts = window.location.href.split('/');
+    const currentURL = hrefParts[hrefParts.length - 1];
+    setActiveURL(currentURL);
+  }, []);
+
   return (
     <NavbarDiv>
-      <Button id='0' onClick={mouseEventHandler}>
-        <ButtonText id='0' isActive={activeID === 0 ? true : false}>
-          Home
+      <Button>
+        <ButtonText isActive={activeURL === ''}>
+          <Link href='/'>Home</Link>
         </ButtonText>
       </Button>
-      <Button id='1' onClick={mouseEventHandler}>
-        <ButtonText id='1' isActive={activeID === 1 ? true : false}>
-          Projects
+      <Button>
+        <ButtonText isActive={activeURL === 'projects'}>
+          <Link href='/projects'>Projects</Link>
         </ButtonText>
       </Button>
-      <Button id='2' onClick={mouseEventHandler}>
-        <ButtonText id='2' isActive={activeID === 2 ? true : false}>
-          Blog
+      <Button>
+        <ButtonText isActive={activeURL === 'blog'}>
+          <Link href='/blog'>Blog</Link>
         </ButtonText>
       </Button>
-      <Button id='3' onClick={mouseEventHandler}>
-        <ButtonText id='3' isActive={activeID === 3 ? true : false}>
-          Guestbook
+      <Button>
+        <ButtonText isActive={activeURL === 'guestbook'}>
+          <Link href='/guestbook'>Guestbook</Link>
         </ButtonText>
       </Button>
-      <Button id='4' onClick={mouseEventHandler}>
-        <ButtonText id='4' isActive={activeID === 4 ? true : false}>
-          Resume
+      <Button>
+        <ButtonText>
+          <Link href={resumeLink} target='_blank'>
+            Resume
+          </Link>
         </ButtonText>
       </Button>
       <ThemeBox>
@@ -68,7 +72,7 @@ const Button = styled.button`
 `;
 
 interface IButtonText {
-  isActive: boolean;
+  isActive?: boolean;
 }
 
 const ButtonText = styled.h2<IButtonText>`
@@ -96,3 +100,6 @@ const moonStyles: React.CSSProperties = {
   height: '35px',
   color: '#183052',
 };
+
+const resumeLink =
+  'https://docs.google.com/document/d/1xABG43h-ft8hQ5mHonDfLTCciuWnraxslb_tuDYxF_w/';

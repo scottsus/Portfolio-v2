@@ -27,7 +27,7 @@ export default function HomePage() {
             alt='Terminal Arrow'
           />
           <Code>
-            <TypedStrings id='typed-whoami' strings={['whoami?']} />
+            <TypedStrings id='typed-whoami' strings={['whoami?']} speed={200} />
           </Code>
         </Terminal>
         <AboutText>

@@ -1,10 +1,12 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import TypedStrings from '../components/TypedStrings';
 import Navbar from '../components/Navbar';
 import Image from 'next/image';
 import CodeSnippet from '../components/CodeSnippet';
 import { tsCode, goCode, javaCode } from '../lib/codeSnippets';
+import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default function HomePage() {
   return (
@@ -46,7 +48,7 @@ export default function HomePage() {
         </AboutText>
       </About>
       <Experiences>
-        <SectionHeading>Prev SDE @</SectionHeading>
+        <SectionHeading margin='45px 0 40px'>Prev SDE @</SectionHeading>
         <CompanyLogos>
           <Image
             src='/imgs/companies/Amazon.png'
@@ -75,7 +77,7 @@ export default function HomePage() {
         </CompanyLogos>
       </Experiences>
       <Languages>
-        <SectionHeading>
+        <SectionHeading margin='75px 0 55px'>
           I&apos;m multilingual since birth. I speak native English, TypeScript,
           Go, Java...
         </SectionHeading>
@@ -90,6 +92,83 @@ export default function HomePage() {
           />
         </CodeSnippetContainer>
       </Languages>
+      <SectionHeading margin='45px 0 45px 20px' textAlign='left'>
+        May our paths cross again...
+      </SectionHeading>
+      <SubscribeContainer>
+        <Image
+          src='/imgs/Newsletter.png'
+          width={300}
+          height={300}
+          alt='Newsletter Robot'
+          style={{ marginLeft: '30px' }}
+        />
+        <TextArea>
+          <OrElse>Subscribe to my newsletter, or else...</OrElse>
+          <TimingText>
+            I was born <br />
+            &emsp;too <span id='red'>late</span> to explore the world, <br />
+            &emsp;too <span id='yellow'>early</span> to explore the galaxy,
+            <br />
+            &emsp;but <span id='green'>just in time</span> to write these weekly
+            newsletters.
+          </TimingText>
+          <EmailForm>
+            <InputBar type='text' placeholder='brucewayne@batman.com' />
+            <SubmitButton>
+              <FontAwesomeIcon
+                icon={faPaperPlane}
+                style={{ fontSize: '18px', color: '#222632' }}
+              />
+            </SubmitButton>
+          </EmailForm>
+          <ConsiderText>
+            👋 Consider subscribing and let's change the world together!
+          </ConsiderText>
+        </TextArea>
+      </SubscribeContainer>
+      <Socials>
+        <SocialsRow width={100}>
+          <Image
+            src='/imgs/icons/Instagram.png'
+            width={35}
+            height={35}
+            alt='Instagram'
+          />
+          <Image
+            src='/imgs/icons/Twitter.png'
+            width={34}
+            height={28}
+            alt='Twitter'
+          />
+          <Image
+            src='/imgs/icons/GitHub.png'
+            width={36}
+            height={35}
+            alt='GitHub'
+          />
+          <Image
+            src='/imgs/icons/LinkedIn.png'
+            width={35}
+            height={35}
+            alt='LinkedIn'
+          />
+        </SocialsRow>
+        <SocialsRow width={50}>
+          <Image
+            src='/imgs/icons/Calendar.png'
+            width={35}
+            height={35}
+            alt='Calendar'
+          />
+          <Image
+            src='/imgs/icons/Google.png'
+            width={35}
+            height={35}
+            alt='Google'
+          />
+        </SocialsRow>
+      </Socials>
     </>
   );
 }
@@ -163,13 +242,18 @@ const Experiences = styled.section`
   margin: 70px auto;
 `;
 
-const SectionHeading = styled.h2`
+interface ISectionHeading {
+  margin: string;
+  textAlign?: string;
+}
+
+const SectionHeading = styled.h2<ISectionHeading>`
   width: 100%;
   font-size: 32px;
   font-family: Articulat, Arial;
   font-weight: 700;
-  margin: 0 auto 55px;
-  text-align: center;
+  margin: ${(props) => props.margin};
+  text-align: ${(props) => (props.textAlign ? props.textAlign : 'center')};
 `;
 
 const CompanyLogos = styled.div`
@@ -183,7 +267,7 @@ const Languages = styled.section`
   width: 100%;
   height: 650px;
   border-radius: 15px;
-  margin: 35px auto;
+  margin: 35px auto 120px;
 `;
 
 const CodeSnippetContainer = styled.div`
@@ -191,4 +275,99 @@ const CodeSnippetContainer = styled.div`
   width: 1000px;
   display: flex;
   overflow-y: scroll;
+`;
+
+const SubscribeContainer = styled.section`
+  max-width: 1000px;
+  height: 340px;
+  border-radius: 20px;
+  background-color: #222632;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  margin-bottom: 40px;
+`;
+
+const TextArea = styled.div`
+  width: 540px;
+  margin: 0 45px 0 auto;
+`;
+
+const OrElse = styled.div`
+  font-size: 24px;
+  font-family: Kamerik, Arial;
+  font-weight: 700;
+`;
+
+const TimingText = styled.p`
+  font-size: 18px;
+  font-family: Articulat, Arial;
+  font-weight: 400;
+  margin: 15px 0 0;
+  line-height: 1.3;
+
+  #red {
+    color: #f16a6a;
+  }
+
+  #yellow {
+    color: #f2e357;
+  }
+
+  #green {
+    color: #88e986;
+  }
+`;
+
+const EmailForm = styled.form`
+  width: 350px;
+  height: 30px;
+  border-radius: 5px;
+
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  margin: 15px 0 15px 18px;
+  padding: 0 3px;
+`;
+
+const InputBar = styled.input`
+  width: 310px;
+  height: 30px;
+  background-color: transparent;
+  padding: 0 10px;
+`;
+
+const SubmitButton = styled.button`
+  width: 40px;
+  height: 26px;
+  border-radius: 5px;
+  background-color: #758ad3;
+`;
+
+const ConsiderText = styled.p`
+  font-size: 18px;
+  font-family: Articulat, Arial;
+  font-weight: 400;
+`;
+
+const Socials = styled.section`
+  width: 215px;
+  height: 95px;
+  margin: 150px auto 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+interface ISocialsRow {
+  width: number;
+}
+
+const SocialsRow = styled.div<ISocialsRow>`
+  width: ${(props) => props.width}%;
+  height: 35px;
+  display: flex;
+  justify-content: space-between;
 `;

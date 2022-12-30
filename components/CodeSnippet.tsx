@@ -62,6 +62,10 @@ export const CodeSnippetDiv = styled.div<ICodeSnippetDiv>`
     color: #74ade9;
   }
 
+  #teal {
+    color: #6fb4c0;
+  }
+
   #grey {
     color: #acb2be;
   }

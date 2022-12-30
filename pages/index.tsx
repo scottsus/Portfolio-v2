@@ -7,7 +7,6 @@ import CodeSnippet from '../components/CodeSnippet';
 import { tsCode, goCode, javaCode } from '../lib/codeSnippets';
 
 export default function HomePage() {
-  const componentRef = useRef(null);
   return (
     <>
       <Navbar />
@@ -82,7 +81,7 @@ export default function HomePage() {
         </SectionHeading>
         <CodeSnippetContainer>
           <CodeSnippet id='typed-typescript' text={[tsCode]} speed={5} />
-          <CodeSnippet id='typed-go' text={[tsCode]} speed={8} />
+          <CodeSnippet id='typed-go' text={[goCode]} speed={8} width={600} />
           <CodeSnippet
             id='typed-java'
             text={[javaCode]}

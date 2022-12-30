@@ -23,6 +23,26 @@ export const tsCode = `
 `;
 
 export const goCode = `
+<span id='purple'>package</span> <span id='grey'>main</span><br>
+<br>
+<span id='purple'>func</span> <span id='blue'>main</span><span id='yellow'>()</span><br>
+    &emsp;<span id='red'>resp</span><span id='grey'>, </span><span id='red'>err</span> <span id='purple'>:=</span> <span id='grey'>http.</span><span id='teal'>Get</span><span id='purple'>(</span><span id='green'>"https://shady-site.com"</span><span id='purple'>)</span><br>
+    &emsp;<span id='purple'>if</span> <span id='grey'>err</span> <span id='purple'>!=</span> <span id='orange'>nil</span> <span id='purple'>{</span><br>
+    &emsp;&emsp;<span id='grey'>log.</span><span id='teal'>Fatal</span><span id='blue'>(</span><span id='green'>"Website too shady!"</span><span id='blue'>)</span><br>
+    &emsp;<span id='purple'>}</span><br>
+    &emsp;<span id='red'>body</span><span id='grey'>, </span><span id='red'>err</span> <span id='purple'>:=</span> <span id='grey'>ioutil.</span><span id='teal'>ReadAll<span id='purple'>(</span><span id='grey'>resp.Body</span><span id='purple'>)</span><br>
+    &emsp;<span id='purple'>if</span> <span id='grey'>err</span> <span id='purple'>!=</span> <span id='orange'>nil</span> <span id='purple'>{</span><br>
+    &emsp;&emsp;<span id='grey'>log.</span><span id='teal'>Fatal</span><span id='blue'>(</span><span id='green'>"Shady body can't be read!"</span><span id='blue'>)</span><br>
+    &emsp;<span id='purple'>}</span><br>
+    &emsp;<span id='purple'>type</span> <span id='yellow'>ShadyItem</span> <span id='purple'>struct {</span><br>
+    &emsp;&emsp;<span id='grey'>name</span> <span id='purple'>string</span><br>
+    &emsp;&emsp;<span id='grey'>price</span> <span id='purple'>float32</span><br>
+    &emsp;<span id='purple'>}</span><br>
+    &emsp;<span id='purple'>var</span> <span id='red'>redClownNose</span> <span id='grey'>ShadyItem</span><br>
+    &emsp;<span id='purple'>if</span> <span id='red'>err</span> <span id='purple'>:=</span> <span id='grey'>json.</span><span id='teal'>Unmarshal</span><span id='purple'>(</span><span id='grey'>body, </span><span id='purple'>&</span><span id='grey'>redClownNose</span><span id='purple'>)</span><span id='grey'>; err</span> <span id='purple'>!=</span> <span id='orange'>nil</span> <span id='purple'>{</span><br>
+    &emsp;&emsp;<span id='grey'>log.</span><span id='teal'>Fatal</span><span id='blue'>(</span><span id='green'>"This object isn&apos;t a shady item!"</span><span id='blue'>)</span><br>
+    &emsp;<span id='purple'>}</span><br>
+    &emsp;<span id='grey'>fmt.</span><span id='teal'>Println</span><span id='purple'>(</span><span id='green'>"Here you go"</span><span id='grey'>, redClownNose</span><span id='purple'>)</span><br>
 `;
 
 export const javaCode = `

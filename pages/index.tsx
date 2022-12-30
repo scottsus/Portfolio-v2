@@ -125,7 +125,7 @@ export default function HomePage() {
             </SubmitButton>
           </EmailForm>
           <ConsiderText>
-            <HandWave /> Consider subscribing and let's change the world
+            <HandWave /> Consider subscribing and let&apos;s change the world
             together!
           </ConsiderText>
         </TextArea>

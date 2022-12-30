@@ -33,7 +33,7 @@ export default function HomePage() {
             alt='Terminal Arrow'
           />
           <TerminalCode>
-            <TypedStrings id='typed-whoami' strings={['whoami?']} />
+            <TypedStrings id='typed-whoami' strings={['whoami?']} speed={300} />
           </TerminalCode>
         </Terminal>
         <AboutText>

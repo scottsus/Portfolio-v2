@@ -308,7 +308,7 @@ const TextArea = styled.div`
   margin: 0 45px 0 auto;
 `;
 
-const OrElse = styled.div`
+const OrElse = styled.h2`
   font-size: 24px;
   font-family: Kamerik, Arial;
   font-weight: 700;

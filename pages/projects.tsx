@@ -75,7 +75,7 @@ export default function ProjectsPage() {
           style={{
             position: 'absolute',
             top: '810px',
-            left: '870px',
+            left: '770px',
             borderRadius: '20px',
           }}
         />
@@ -86,7 +86,7 @@ export default function ProjectsPage() {
           width={540}
           height={340}
           alt='ASL to Text Render'
-          style={{ position: 'absolute', top: '1200px', left: '200px' }}
+          style={{ position: 'absolute', top: '1200px', left: '100px' }}
         />
         <TextArea width={400} height={250} margin='0 100px 0 auto' hasBlackText>
           <ProjectTitle>ASL to Text Bot</ProjectTitle>
@@ -136,7 +136,7 @@ export default function ProjectsPage() {
           width={480}
           height={280}
           alt='YelpCamp Home Page'
-          style={{ position: 'absolute', top: '1710px', left: '780px' }}
+          style={{ position: 'absolute', top: '1710px', left: '680px' }}
         />
       </YelpCampContainer>
       <CTA>

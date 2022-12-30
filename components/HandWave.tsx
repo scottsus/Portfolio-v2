@@ -9,7 +9,7 @@ export default function HandWave({ fontSize }: IHandWave) {
   return <HandWaveContainer>👋</HandWaveContainer>;
 }
 
-const HandWaveContainer = styled.div`
+const HandWaveContainer = styled.span`
   animation-name: wave-animation;
   animation-duration: 2.5s;
   animation-iteration-count: infinite;

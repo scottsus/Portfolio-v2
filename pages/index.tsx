@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import TypedStrings from '../components/TypedStrings';
 import Navbar from '../components/Navbar';
 import Image from 'next/image';
+import { typescriptCode } from '../lib/codeSnippets';
 
 export default function HomePage() {
   return (
@@ -26,9 +27,9 @@ export default function HomePage() {
             height={47}
             alt='Terminal Arrow'
           />
-          <Code>
+          <TerminalCode>
             <TypedStrings id='typed-whoami' strings={['whoami?']} />
-          </Code>
+          </TerminalCode>
         </Terminal>
         <AboutText>
           🚀 Lorem ipsum dolor, sit amet consectetur adipisicing elit. 🔮
@@ -46,32 +47,42 @@ export default function HomePage() {
       <Experiences>
         <SectionHeading>Prev SDE @</SectionHeading>
         <CompanyLogos>
+          <Image src='/imgs/Amazon.png' width={122} height={90} alt='Amazon' />
           <Image
-            src='/imgs/companies/Amazon.png'
-            width={122}
-            height={90}
-            alt='Amazon'
-          />
-          <Image
-            src='/imgs/companies/CarbonLink.png'
+            src='/imgs/CarbonLink.png'
             width={92}
             height={90}
             alt='CarbonLink'
           />
           <Image
-            src='/imgs/companies/Sourcegraph.png'
+            src='/imgs/Sourcegraph.png'
             width={89}
             height={90}
             alt='Sourcegraph'
           />
           <Image
-            src='/imgs/companies/Snap-Fitness.png'
+            src='/imgs/Snap-Fitness.png'
             width={268}
             height={90}
             alt='Snap Fitness'
           />
         </CompanyLogos>
       </Experiences>
+      <Languages>
+        <SectionHeading>
+          I'm multilingual since birth. I speak native English, TypeScript, Go,
+          Java...
+        </SectionHeading>
+        <SnippetContainer>
+          <CodeSnippet>
+            <TypedStrings
+              id='typed-typescript'
+              strings={[typescriptCode]}
+              speed={5}
+            />
+          </CodeSnippet>
+        </SnippetContainer>
+      </Languages>
     </>
   );
 }
@@ -125,7 +136,7 @@ const Terminal = styled.div`
   margin-bottom: 30px;
 `;
 
-const Code = styled.p`
+const TerminalCode = styled.p`
   font-size: 32px;
   font-family: SourceCodePro;
   font-weight: 400;
@@ -159,4 +170,55 @@ const CompanyLogos = styled.div`
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
+`;
+
+const Languages = styled.section`
+  width: 100%;
+  height: 650px;
+  border-radius: 15px;
+  margin: 35px auto;
+`;
+
+const SnippetContainer = styled.div`
+  width: 100%;
+  height: 650px;
+  overflow-x: scroll;
+`;
+
+const CodeSnippet = styled.div`
+  width: 565px;
+  height: 650px;
+  margin-right: 35px;
+  font-size: 18px;
+  font-family: SourceCodePro;
+  font-weight: 400;
+  line-height: 1.5;
+
+  #purple {
+    color: #bb7cd7;
+  }
+
+  #red {
+    color: #d17277;
+  }
+
+  #orange {
+    color: #c99c6e;
+  }
+
+  #yellow {
+    color: #dfc184;
+  }
+
+  #green {
+    color: #a1c281;
+  }
+
+  #blue {
+    color: #74ade9;
+  }
+
+  #grey {
+    color: #acb2be;
+  }
 `;

@@ -52,7 +52,7 @@ export default function Navbar() {
 const NavbarDiv = styled.div`
   width: 100%;
   height: 45px;
-  margin: 35px 0px 35px -20px;
+  margin: 35px 0px 35px;
   display: flex;
   flex-direction: row;
   justify-content: start;
@@ -64,10 +64,10 @@ const Button = styled.button`
   background-color: transparent;
   border: none;
   border-radius: 10px;
-  padding: 0px 20px;
+  margin: 0px 10px;
   cursor: pointer;
-  :hover {
-    background-color: #222222;
+  :first-child {
+    margin-left: 0;
   }
 `;
 
@@ -81,6 +81,10 @@ const ButtonText = styled.h2<IButtonText>`
   font-weight: ${(props) => (props.isActive ? 600 : 500)};
   color: ${(props) => (props.isActive ? '#eaeaea' : '#858080')};
   margin: auto auto;
+  :hover {
+    text-decoration: underline 3px;
+    text-underline-offset: 7px;
+  }
 `;
 
 const ThemeBox = styled.div`

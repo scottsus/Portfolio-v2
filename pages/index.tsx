@@ -3,10 +3,12 @@ import styled from 'styled-components';
 import TypedStrings from '../components/TypedStrings';
 import Navbar from '../components/Navbar';
 import Image from 'next/image';
+import Link from 'next/link';
 import CodeSnippet from '../components/CodeSnippet';
 import { tsCode, goCode, javaCode } from '../lib/codeSnippets';
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import HandWave from '../components/HandWave';
 
 export default function HomePage() {
   return (
@@ -123,50 +125,63 @@ export default function HomePage() {
             </SubmitButton>
           </EmailForm>
           <ConsiderText>
-            👋 Consider subscribing and let's change the world together!
+            <HandWave /> Consider subscribing and let's change the world
+            together!
           </ConsiderText>
         </TextArea>
       </SubscribeContainer>
       <Socials>
         <SocialsRow width={100}>
-          <Image
-            src='/imgs/icons/Instagram.png'
-            width={35}
-            height={35}
-            alt='Instagram'
-          />
-          <Image
-            src='/imgs/icons/Twitter.png'
-            width={34}
-            height={28}
-            alt='Twitter'
-          />
-          <Image
-            src='/imgs/icons/GitHub.png'
-            width={36}
-            height={35}
-            alt='GitHub'
-          />
-          <Image
-            src='/imgs/icons/LinkedIn.png'
-            width={35}
-            height={35}
-            alt='LinkedIn'
-          />
+          <Link href='https://www.instagram.com/scottsusanto/' target='_blank'>
+            <Image
+              src='/imgs/icons/Instagram.png'
+              width={35}
+              height={35}
+              alt='Instagram'
+            />
+          </Link>
+          <Link href='https://www.twitter.com/susantoscott' target='_blank'>
+            <Image
+              src='/imgs/icons/Twitter.png'
+              width={34}
+              height={28}
+              alt='Twitter'
+            />
+          </Link>
+          <Link href='https://github.com/susantoscott' target='_blank'>
+            <Image
+              src='/imgs/icons/GitHub.png'
+              width={36}
+              height={35}
+              alt='GitHub'
+            />
+          </Link>
+          <Link href='https://linkedin.com/in/susantoscott' target='_blank'>
+            <Image
+              src='/imgs/icons/LinkedIn.png'
+              width={35}
+              height={35}
+              alt='LinkedIn'
+            />
+          </Link>
         </SocialsRow>
-        <SocialsRow width={50}>
-          <Image
-            src='/imgs/icons/Calendar.png'
-            width={35}
-            height={35}
-            alt='Calendar'
-          />
-          <Image
-            src='/imgs/icons/Google.png'
-            width={35}
-            height={35}
-            alt='Google'
-          />
+        <SocialsRow width={45}>
+          <Link href='https://calendly.com/scottsus' target='_blank'>
+            <Image
+              src='/imgs/icons/Calendar.png'
+              width={35}
+              height={35}
+              alt='Calendar'
+            />
+          </Link>
+          <Link href='mailto::scottsus@usc.edu'>
+            <Image
+              src='/imgs/icons/Google.png'
+              width={35}
+              height={35}
+              alt='Google'
+            />
+          </Link>
         </SocialsRow>
       </Socials>
     </>
@@ -304,7 +319,7 @@ const TimingText = styled.p`
   font-family: Articulat, Arial;
   font-weight: 400;
   margin: 15px 0 0;
-  line-height: 1.3;
+  line-height: 1.4;
 
   #red {
     color: #f16a6a;
@@ -346,7 +361,7 @@ const SubmitButton = styled.button`
 `;
 
 const ConsiderText = styled.p`
-  font-size: 18px;
+  font-size: 20px;
   font-family: Articulat, Arial;
   font-weight: 400;
 `;
@@ -354,7 +369,7 @@ const ConsiderText = styled.p`
 const Socials = styled.section`
   width: 215px;
   height: 95px;
-  margin: 150px auto 50px;
+  margin: 120px auto 70px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

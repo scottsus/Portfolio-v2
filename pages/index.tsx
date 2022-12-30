@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import styled from 'styled-components';
 import TypedStrings from '../components/TypedStrings';
 import Navbar from '../components/Navbar';
 import Image from 'next/image';
-import { typescriptCode } from '../lib/codeSnippets';
+import CodeSnippet from '../components/CodeSnippet';
+import { tsCode, goCode, javaCode } from '../lib/codeSnippets';
 
 export default function HomePage() {
+  const componentRef = useRef(null);
   return (
     <>
       <Navbar />
@@ -14,7 +16,7 @@ export default function HomePage() {
           <Title>Scott Susanto</Title>
           <Subtitle>
             I am
-            <TypedStrings id='typed-subtitle' strings={typedStrings} loop />
+            <TypedStrings id='typed-subtitle' strings={typedSubtitles} loop />
           </Subtitle>
         </TitleAndSubtitle>
         <Image src='/imgs/DP.png' width={220} height={255} alt='Handsome Lad' />
@@ -47,21 +49,26 @@ export default function HomePage() {
       <Experiences>
         <SectionHeading>Prev SDE @</SectionHeading>
         <CompanyLogos>
-          <Image src='/imgs/Amazon.png' width={122} height={90} alt='Amazon' />
           <Image
-            src='/imgs/CarbonLink.png'
+            src='/imgs/companies/Amazon.png'
+            width={122}
+            height={90}
+            alt='Amazon'
+          />
+          <Image
+            src='/imgs/companies/CarbonLink.png'
             width={92}
             height={90}
             alt='CarbonLink'
           />
           <Image
-            src='/imgs/Sourcegraph.png'
+            src='/imgs/companies/Sourcegraph.png'
             width={89}
             height={90}
             alt='Sourcegraph'
           />
           <Image
-            src='/imgs/Snap-Fitness.png'
+            src='/imgs/companies/Snap-Fitness.png'
             width={268}
             height={90}
             alt='Snap Fitness'
@@ -70,18 +77,19 @@ export default function HomePage() {
       </Experiences>
       <Languages>
         <SectionHeading>
-          I'm multilingual since birth. I speak native English, TypeScript, Go,
-          Java...
+          I&apos;m multilingual since birth. I speak native English, TypeScript,
+          Go, Java...
         </SectionHeading>
-        <SnippetContainer>
-          <CodeSnippet>
-            <TypedStrings
-              id='typed-typescript'
-              strings={[typescriptCode]}
-              speed={5}
-            />
-          </CodeSnippet>
-        </SnippetContainer>
+        <CodeSnippetContainer>
+          <CodeSnippet id='typed-typescript' text={[tsCode]} speed={5} />
+          <CodeSnippet id='typed-go' text={[tsCode]} speed={8} />
+          <CodeSnippet
+            id='typed-java'
+            text={[javaCode]}
+            speed={4}
+            width={600}
+          />
+        </CodeSnippetContainer>
       </Languages>
     </>
   );
@@ -113,7 +121,7 @@ const Subtitle = styled.h2`
   margin: 0 0 30px 0;
 `;
 
-const typedStrings = [
+const typedSubtitles = [
   `<span id='typed-subtitle'> the technical cofounder</span id='typed-subtitle>`,
   `<span id='typed-subtitle'> a software engineer</span id='typed-subtitle'>`,
   `<span id='typed-subtitle'> an aspiring entrepreneur</span id='typed-subtitle'>`,
@@ -179,46 +187,9 @@ const Languages = styled.section`
   margin: 35px auto;
 `;
 
-const SnippetContainer = styled.div`
-  width: 100%;
+const CodeSnippetContainer = styled.div`
   height: 650px;
-  overflow-x: scroll;
-`;
-
-const CodeSnippet = styled.div`
-  width: 565px;
-  height: 650px;
-  margin-right: 35px;
-  font-size: 18px;
-  font-family: SourceCodePro;
-  font-weight: 400;
-  line-height: 1.5;
-
-  #purple {
-    color: #bb7cd7;
-  }
-
-  #red {
-    color: #d17277;
-  }
-
-  #orange {
-    color: #c99c6e;
-  }
-
-  #yellow {
-    color: #dfc184;
-  }
-
-  #green {
-    color: #a1c281;
-  }
-
-  #blue {
-    color: #74ade9;
-  }
-
-  #grey {
-    color: #acb2be;
-  }
+  width: 1000px;
+  display: flex;
+  overflow-y: scroll;
 `;

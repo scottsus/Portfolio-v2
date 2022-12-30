@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { useInView } from 'react-intersection-observer';
 import Typed from 'typed.js';
 
 interface ITypedStrings {
@@ -14,6 +15,7 @@ export default function TypedStrings({
   speed = 50,
   loop = false,
 }: ITypedStrings) {
+  const { ref, inView } = useInView({ triggerOnce: true });
   useEffect(() => {
     const typedSubtitles = new Typed(`#${id}`, {
       strings: strings,
@@ -21,8 +23,9 @@ export default function TypedStrings({
       backSpeed: 50,
       loop: loop,
     });
-    typedSubtitles.start();
+    if (inView) typedSubtitles.start();
     return () => typedSubtitles.destroy();
-  });
-  return <span id={id} />;
+  }),
+    [inView];
+  return <span id={id} ref={ref} />;
 }

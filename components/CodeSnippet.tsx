@@ -65,7 +65,8 @@ export const CodeSnippetDiv = styled.div<ICodeSnippetDiv>`
   }
 
   @media (${small}) {
-    width: 100%;
+    min-width: 0;
+    max-width: 100%;
     font-size: 12px;
     margin: 10px 0;
     padding: 15px;

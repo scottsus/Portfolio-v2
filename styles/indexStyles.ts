@@ -186,6 +186,7 @@ export const CodeSnippetContainer = styled.div`
     width: 100%;
     height: 100%;
     flex-direction: column;
+    overflow-x: hidden;
   }
 `;
 
@@ -203,9 +204,9 @@ export const SubscribeContainer = styled.section`
     max-width: 100%;
     border-radius: 10px;
     flex-direction: column;
-    padding: 20px;
+    padding: 20px 20px 30px;
     #newsletter {
-      margin: 0 auto;
+      margin: 0 auto 20px;
     }
   }
 `;

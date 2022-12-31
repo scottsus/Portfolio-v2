@@ -26,7 +26,7 @@ export const tsCode = `
 export const goCode = `
 <span id='purple'>package</span> <span id='grey'>main</span><br />
 <br />
-<span id='purple'>func</span> <span id='blue'>main</span><span id='yellow'>()</span><br />
+<span id='purple'>func</span> <span id='blue'>main</span><span id='yellow'>() {</span><br />
     &emsp;<span id='red'>resp</span><span id='grey'>, </span><span id='red'>err</span> <span id='purple'>:=</span> <span id='grey'>http.</span><span id='teal'>Get</span><span id='purple'>(</span><span id='green'>"https://shady-site.com"</span><span id='purple'>)</span><br />
     &emsp;<span id='purple'>if</span> <span id='grey'>err</span> <span id='purple'>!=</span> <span id='orange'>nil</span> <span id='purple'>{</span><br />
     &emsp;&emsp;<span id='grey'>log.</span><span id='teal'>Fatal</span><span id='blue'>(</span><span id='green'>"Website too shady!"</span><span id='blue'>)</span><br />
@@ -44,6 +44,7 @@ export const goCode = `
     &emsp;&emsp;<span id='grey'>log.</span><span id='teal'>Fatal</span><span id='blue'>(</span><span id='green'>"This object isn&apos;t a shady item!"</span><span id='blue'>)</span><br />
     &emsp;<span id='purple'>}</span><br />
     &emsp;<span id='grey'>fmt.</span><span id='teal'>Println</span><span id='purple'>(</span><span id='green'>"Here you go"</span><span id='grey'>, redClownNose</span><span id='purple'>)</span><br />
+<span id='yellow'>}</span>
 `;
 
 export const javaCode = `

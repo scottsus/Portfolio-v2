@@ -52,7 +52,7 @@ export default function Navbar() {
 const NavbarDiv = styled.div`
   width: 100%;
   height: 45px;
-  margin: 35px 0px 35px;
+  margin: 20px 0px 25px;
   display: flex;
   flex-direction: row;
   justify-content: start;

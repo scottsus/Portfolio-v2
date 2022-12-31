@@ -1,11 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-interface IHandWave {
-  fontSize?: number;
-}
-
-export default function HandWave({ fontSize }: IHandWave) {
+export default function HandWave() {
   return <HandWaveContainer>👋</HandWaveContainer>;
 }
 
@@ -16,6 +12,7 @@ const HandWaveContainer = styled.span`
   transform-origin: 70% 70%;
   display: inline-block;
   font-size: inherit;
+  margin-right: 10px;
 
   @keyframes wave-animation {
     0% {
@@ -42,9 +39,5 @@ const HandWaveContainer = styled.span`
     100% {
       transform: rotate(0deg);
     }
-  }
-
-  @media (max-width: 450px) {
-    font-size: 50px;
   }
 `;

@@ -1,19 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
 import TypedStrings from './TypedStrings';
+import { small, medium } from '../styles/responsive';
 
 interface ICodeSnippet {
   id: string;
   text: string[];
   speed?: number;
-  width?: number;
+  width: number;
 }
 
 export default function CodeSnippet({
   id,
   text,
   speed = 50,
-  width = 550,
+  width,
 }: ICodeSnippet) {
   return (
     <CodeSnippetDiv width={width}>
@@ -23,12 +24,12 @@ export default function CodeSnippet({
 }
 
 interface ICodeSnippetDiv {
-  width?: number;
+  width: number;
 }
 
 export const CodeSnippetDiv = styled.div<ICodeSnippetDiv>`
   min-width: ${(props) => props.width}px;
-  height: 480px;
+  min-height: 100px;
   margin-right: 35px;
   padding: 30px;
   background-color: #222632;
@@ -41,32 +42,32 @@ export const CodeSnippetDiv = styled.div<ICodeSnippetDiv>`
   #purple {
     color: #bb7cd7;
   }
-
   #red {
     color: #d17277;
   }
-
   #orange {
     color: #c99c6e;
   }
-
   #yellow {
     color: #dfc184;
   }
-
   #green {
     color: #a1c281;
   }
-
   #blue {
     color: #74ade9;
   }
-
   #teal {
     color: #6fb4c0;
   }
-
   #grey {
     color: #acb2be;
+  }
+
+  @media (${small}) {
+    width: 100%;
+    font-size: 12px;
+    margin: 10px 0;
+    padding: 15px;
   }
 `;

@@ -1,15 +1,28 @@
 import React from 'react';
-import styled from 'styled-components';
 import Navbar from '../components/Navbar';
-import { Title, Subtitle } from '../components/TypicalPage';
 import Image from 'next/image';
-import { faCalendar, faMailBulk } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
+import { Title, Subtitle } from '../components/TypicalPage';
+import {
+  ProjectsDiv,
+  SpotlightContainer,
+  TextArea,
+  ProjectTitle,
+  ProjectText,
+  Links,
+  ProjectLink,
+  HiPattyContainer,
+  ASLContainer,
+  YelpCampContainer,
+  CTA,
+  CTAText,
+  Cofounder,
+  Social,
+} from '../styles/projectsStyles';
 
 export default function ProjectsPage() {
   return (
-    <>
+    <ProjectsDiv>
       <Navbar />
       <Title>Personal Projects</Title>
       <Subtitle style={{ marginBottom: '100px' }}>
@@ -20,7 +33,7 @@ export default function ProjectsPage() {
       <SpotlightContainer>
         <Image
           src='/imgs/projects/Spotlight-Imgs.png'
-          width={500}
+          width={400}
           height={300}
           alt='Phone and Laptop'
           style={{ marginLeft: '40px' }}
@@ -75,7 +88,7 @@ export default function ProjectsPage() {
           style={{
             position: 'absolute',
             top: '810px',
-            left: '770px',
+            left: '840px',
             borderRadius: '20px',
           }}
         />
@@ -86,7 +99,7 @@ export default function ProjectsPage() {
           width={540}
           height={340}
           alt='ASL to Text Render'
-          style={{ position: 'absolute', top: '1200px', left: '100px' }}
+          style={{ position: 'absolute', top: '1230px', left: '200px' }}
         />
         <TextArea width={400} height={250} margin='0 100px 0 auto' hasBlackText>
           <ProjectTitle>ASL to Text Bot</ProjectTitle>
@@ -136,7 +149,7 @@ export default function ProjectsPage() {
           width={480}
           height={280}
           alt='YelpCamp Home Page'
-          style={{ position: 'absolute', top: '1710px', left: '680px' }}
+          style={{ marginRight: '40px', borderRadius: '10px' }}
         />
       </YelpCampContainer>
       <CTA>
@@ -160,109 +173,6 @@ export default function ProjectsPage() {
           </Social>
         </CTAText>
       </CTA>
-    </>
+    </ProjectsDiv>
   );
 }
-
-const projectSkeleton = `
-    width: 980px;
-    height: 340px;
-    border-radius: 30px;
-    margin-bottom: 85px;
-    display: flex;
-    align-items: center;
-`;
-
-const SpotlightContainer = styled.div`
-  ${projectSkeleton}
-  background: linear-gradient(101.52deg, #9019F2 -3.55%, #4D78FC 103.61%);
-`;
-
-const HiPattyContainer = styled.div`
-  ${projectSkeleton}
-  background: linear-gradient(101.52deg, #FF3263 -3.55%, #AF4DFC 103.61%);
-`;
-
-const ASLContainer = styled.div`
-  ${projectSkeleton}
-  background: linear-gradient(101.52deg, #F28119 -3.55%, #E4FC4D 103.61%);
-`;
-
-const YelpCampContainer = styled.div`
-  ${projectSkeleton}
-  background: linear-gradient(101.52deg, #45EE75 -3.55%, #4D5FFC 103.61%);
-`;
-
-interface ITextArea {
-  height: number;
-  width: number;
-  margin?: string;
-  hasBlackText?: boolean;
-}
-
-const TextArea = styled.div<ITextArea>`
-  width: ${(props) => props.width}px;
-  height: ${(props) => props.height}px;
-  color: ${(props) => (props.hasBlackText ? '#202020' : '#ffffff')} !important;
-  margin: ${(props) => props.margin};
-`;
-
-const ProjectTitle = styled.h2`
-  font-size: 40px;
-  font-family: Kamerik, Arial;
-  font-weight: 700;
-`;
-
-const ProjectText = styled.p`
-  font-size: 21px;
-  font-family: Articulat, Arial;
-  font-weight: 400;
-  margin: 40px 0;
-`;
-
-const Links = styled.div`
-  width: 80%;
-  display: flex;
-  justify-content: space-around;
-`;
-
-const ProjectLink = styled.p`
-  font-size: 21px;
-  font-family: Articulat, Arial;
-  font-weight: 400;
-  text-decoration: underline;
-`;
-
-const CTA = styled.div`
-  width: 85%;
-  height: 330px;
-  margin: 20px auto 60px;
-  display: flex;
-  align-items: center;
-`;
-
-const CTAText = styled.div`
-  width: 650px;
-  height: 330px;
-  margin-left: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
-const Cofounder = styled.h3`
-  font-size: 30px;
-  font-family: Kamerik, Arial;
-  font-weight: 700;
-  text-align: center;
-  margin: 75px auto 35px;
-`;
-
-const Social = styled.p`
-  font-size: 24px;
-  font-family: Articulat, Arial;
-  font-weight: 400;
-  text-align: left;
-  width: 330px;
-  margin: 0 auto 5px;
-`;

@@ -197,7 +197,7 @@ export const SubscribeContainer = styled.section`
   background-color: #222632;
   display: flex;
   align-items: center;
-  padding: 0 10px;
+  padding: 20px 30px;
   margin-bottom: 40px;
 
   @media (${small}) {

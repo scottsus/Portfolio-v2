@@ -119,7 +119,7 @@ export default function HomePage() {
           I&apos;m multilingual since birth. I speak native English, TypeScript,
           Go, Java...
         </SectionHeading>
-        <CodeSnippetContainer>
+        <CodeSnippetContainer className='noScroll'>
           <CodeSnippet
             id='typed-typescript'
             text={[tsCode]}

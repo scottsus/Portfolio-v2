@@ -39,6 +39,10 @@ export const CodeSnippetDiv = styled.div<ICodeSnippetDiv>`
   font-weight: 400;
   line-height: 1.5;
 
+  :last-child {
+    margin-right: 0;
+  }
+
   #purple {
     color: #bb7cd7;
   }

@@ -1,12 +1,9 @@
 import styled from 'styled-components';
 import { small, medium } from './responsive';
 
-export const HomePageDiv = styled.section`
-  min-height: 100%;
-`;
+export const HomePageDiv = styled.section``;
 
 export const Hero = styled.section`
-  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -17,7 +14,7 @@ export const Hero = styled.section`
     margin-top: 20px;
     text-align: center;
     #profilePicture {
-      margin: 10px 0 30px;
+      margin: 25px 0 30px;
     }
   }
 `;
@@ -55,7 +52,6 @@ export const typedSubtitles = [
 ];
 
 export const About = styled.section`
-  width: 100%;
   height: 360px;
   border-radius: 20px;
   background-color: #222632;
@@ -65,11 +61,11 @@ export const About = styled.section`
   @media (${small}) {
     height: 100%;
     padding: 20px 25px;
+    margin: 0 auto;
   }
 `;
 
 export const Terminal = styled.div`
-  width: 100%;
   height: 55px;
   display: flex;
   align-items: center;
@@ -100,45 +96,49 @@ export const AboutText = styled.p`
   }
 `;
 
-export const Experiences = styled.section`
-  width: 100%;
-  height: 200px;
-  margin: 50px auto;
-
-  @media (${small}) {
-    margin: 20px 0;
-    height: 100%;
-  }
-`;
-
 interface ISectionHeading {
   margin: string;
   textAlign?: string;
+  isBlack?: boolean;
 }
 
 export const SectionHeading = styled.h2<ISectionHeading>`
-  width: 100%;
   font-size: 32px;
   font-family: Articulat, Arial;
   font-weight: 700;
   margin: ${(props) => props.margin};
   text-align: ${(props) => (props.textAlign ? props.textAlign : 'center')};
+  color: ${(props) => props.isBlack && '#222632'};
 
   @media (${small}) {
     font-size: 24px;
     font-weight: 600;
-    margin: 20px 0;
+    margin: 0 0 20px;
+  }
+`;
+
+export const Experiences = styled.section`
+  height: 100%;
+  border-radius: 20px;
+  margin: 70px auto;
+  padding: 40px;
+  background-color: #ffffff;
+
+  @media (${small}) {
+    height: 100%;
+    margin: 40px 0 70px;
+    padding: 40px 20px;
   }
 `;
 
 export const CompanyLogos = styled.div`
-  width: 880px;
+  width: 100%;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
 
   @media (${small}) {
-    width: 80%;
+    width: 100%;
     height: 100%;
     margin-top: 50px;
     align-items: center;
@@ -156,7 +156,6 @@ export const CompanyLogos = styled.div`
 `;
 
 export const Languages = styled.section`
-  width: 100%;
   min-height: 300px;
   border-radius: 15px;
   margin: 35px auto 60px;
@@ -173,10 +172,8 @@ export const CodeSnippetContainer = styled.div`
   overflow-x: scroll;
 
   @media (${small}) {
-    width: 100%;
     height: 100%;
     flex-direction: column;
-    overflow-x: hidden;
   }
 `;
 
@@ -254,7 +251,7 @@ export const EmailForm = styled.form`
   padding: 0 3px;
 
   @media (${small}) {
-    width: 75%;
+    width: 85%;
   }
 `;
 

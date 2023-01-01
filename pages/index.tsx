@@ -82,34 +82,36 @@ export default function HomePage() {
         </AboutText>
       </About>
       <Experiences>
-        <SectionHeading margin='15px 0 40px'>Prev SDE @</SectionHeading>
+        <SectionHeading margin='0 0 40px' isBlack>
+          Prev SDE @
+        </SectionHeading>
         <CompanyLogos>
           <Image
             className='longLogo'
             src='/imgs/companies/Amazon.png'
-            width={270}
-            height={90}
+            width={240}
+            height={80}
             alt='Amazon'
           />
           <Image
             className='shortLogo'
             src='/imgs/companies/CarbonLink.png'
-            width={92}
-            height={90}
+            width={80}
+            height={80}
             alt='CarbonLink'
           />
           <Image
             className='shortLogo'
             src='/imgs/companies/Sourcegraph.png'
-            width={89}
-            height={90}
+            width={80}
+            height={80}
             alt='Sourcegraph'
           />
           <Image
             className='longLogo'
             src='/imgs/companies/Snap-Fitness.png'
-            width={270}
-            height={90}
+            width={240}
+            height={80}
             alt='Snap Fitness'
           />
         </CompanyLogos>

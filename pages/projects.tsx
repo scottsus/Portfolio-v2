@@ -25,18 +25,18 @@ export default function ProjectsPage() {
     <ProjectsDiv>
       <Navbar />
       <Title>Personal Projects</Title>
-      <Subtitle style={{ marginBottom: '100px' }}>
+      <Subtitle>
         🚀 Interning in prestigious companies is cool and all, but what about
         innovating a scrappy invention entirely from scratch? For that, check
         out some of my featured personal projects! 📽️
       </Subtitle>
       <SpotlightContainer>
         <Image
+          id='spotlight-imgs'
           src='/imgs/projects/Spotlight-Imgs.png'
           width={400}
           height={300}
           alt='Phone and Laptop'
-          style={{ marginLeft: '40px' }}
         />
         <TextArea width={340} height={255} margin='10px 60px 0 auto'>
           <ProjectTitle>Spotlight</ProjectTitle>
@@ -81,27 +81,22 @@ export default function ProjectsPage() {
           </ProjectLink>
         </TextArea>
         <Image
+          id='hi-patty-img'
           src='/imgs/projects/Hi-Patty-Img.png'
           width={500}
           height={325}
           alt='StoryBook Browser'
-          style={{
-            position: 'absolute',
-            top: '810px',
-            left: '840px',
-            borderRadius: '20px',
-          }}
         />
       </HiPattyContainer>
       <ASLContainer>
         <Image
+          id='asl-img'
           src='/imgs/projects/ASL-Img.png'
           width={540}
           height={340}
           alt='ASL to Text Render'
-          style={{ position: 'absolute', top: '1230px', left: '200px' }}
         />
-        <TextArea width={400} height={250} margin='0 100px 0 auto' hasBlackText>
+        <TextArea width={400} height={250} margin='0 50px 0 auto' hasBlackText>
           <ProjectTitle>ASL to Text Bot</ProjectTitle>
           <ProjectText>
             A machine that captures an ASL hand sign and converts it into a
@@ -145,11 +140,11 @@ export default function ProjectsPage() {
           </Links>
         </TextArea>
         <Image
+          id='yelp-img'
           src='/imgs/projects/Yelp-Img.png'
           width={480}
           height={280}
           alt='YelpCamp Home Page'
-          style={{ marginRight: '40px', borderRadius: '10px' }}
         />
       </YelpCampContainer>
       <CTA>

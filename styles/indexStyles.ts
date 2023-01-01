@@ -4,9 +4,6 @@ import { small, medium } from './responsive';
 export const HomePageDiv = styled.section`
   width: 100%;
   min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 
   @media (${small}) {
     width: 90%;

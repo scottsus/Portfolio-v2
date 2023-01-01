@@ -51,7 +51,8 @@ a {
 
 @media only screen and (max-width: 450px) {
     body, #__next {
-        width: 100%;
+        width: 90%;
+        margin: 0 auto;
     }
 }
 

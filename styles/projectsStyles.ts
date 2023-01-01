@@ -2,12 +2,7 @@ import styled from 'styled-components';
 import { small, medium } from './responsive';
 
 export const ProjectsDiv = styled.section`
-  width: 100%;
-  margin: 0 auto;
-
   @media (${small}) {
-    width: 90%;
-    margin: 0 auto;
     overflow-x: hidden;
   }
 `;
@@ -86,9 +81,9 @@ export const YelpCampContainer = styled.div`
   @media (${small}) {
     flex-direction: column;
     #yelp-img {
-      width: 320px;
-      height: 220px;
-      margin: auto 0 20px;
+      width: 280px;
+      height: 200px;
+      margin: auto 0 10px;
     }
   }
 `;

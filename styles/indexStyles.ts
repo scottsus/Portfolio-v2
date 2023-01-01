@@ -2,14 +2,7 @@ import styled from 'styled-components';
 import { small, medium } from './responsive';
 
 export const HomePageDiv = styled.section`
-  width: 100%;
   min-height: 100%;
-
-  @media (${small}) {
-    width: 90%;
-    margin: 0 auto;
-    overflow-x: hidden;
-  }
 `;
 
 export const Hero = styled.section`

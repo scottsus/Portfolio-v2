@@ -1,7 +1,18 @@
 import React from 'react';
-import styled from 'styled-components';
 import Navbar from '../components/Navbar';
 import { Title, Subtitle } from '../components/TypicalPage';
+import {
+  GuestbookDiv,
+  MessageBox,
+  Lend,
+  LoginButton,
+  LoginText,
+  Disclaimer,
+  Guestbook,
+  Comment,
+  Text,
+  Metadata,
+} from '../styles/guestbookStyles';
 
 export default function GuestbookPage() {
   return (
@@ -45,68 +56,3 @@ export default function GuestbookPage() {
     </GuestbookDiv>
   );
 }
-
-const GuestbookDiv = styled.div``;
-
-const MessageBox = styled.div`
-  width: 85%;
-  max-height: 175px;
-  border-radius: 10px;
-  background-color: #222632;
-  margin: 35px auto;
-  padding: 20px 36px;
-`;
-
-const Lend = styled.h3`
-  font-size: 24px;
-  font-family: Articulat, Arial;
-  font-weight: 500;
-`;
-
-const LoginButton = styled.button`
-  background-color: #8b97bc;
-  border-radius: 10px;
-  margin: 22px 0 28px;
-  padding: 10px 40px;
-`;
-
-const LoginText = styled.h4`
-  font-size: 17px;
-  font-family: Helvetica, Arial;
-  font-weight: 700;
-  color: #ffffff;
-  margin: 0 auto;
-`;
-
-const Disclaimer = styled.p`
-  font-size: 17px;
-  font-family: Articulat, Arial;
-  font-weight: 400;
-`;
-
-const Guestbook = styled.section`
-  width: 100%;
-  min-height: 250px;
-  padding: 20px 0;
-  margin-bottom: 40px;
-`;
-
-const Comment = styled.div`
-  width: 60%;
-  min-height: 70px;
-  margin-bottom: 35px;
-`;
-
-const Text = styled.h3`
-  font-size: 21px;
-  font-family: Articulat, Arial;
-  font-weight: 500;
-`;
-
-const Metadata = styled.p`
-  font-size: 18px;
-  font-family: Articulat, Arial;
-  font-weight: 400;
-  color: #bcbcbc;
-  margin: 10px 0 0 10px;
-`;

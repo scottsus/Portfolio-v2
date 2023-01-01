@@ -1,11 +1,24 @@
 import React from 'react';
-import styled from 'styled-components';
 import Navbar from '../components/Navbar';
 import { Title, Subtitle } from '../components/TypicalPage';
+import {
+  BlogDiv,
+  SectionHeading,
+  Featured,
+  FeaturedBoxLeft,
+  FeaturedBoxCenter,
+  FeaturedBoxRight,
+  Blog,
+  BlogTitle,
+  BlogContent,
+  ReadTime,
+  AllPosts,
+  ReadAll,
+} from '../styles/blogStyles';
 
 export default function BlogPage() {
   return (
-    <>
+    <BlogDiv>
       <Navbar />
       <Title>A glimpse into my mind...</Title>
       <Subtitle>
@@ -78,98 +91,6 @@ export default function BlogPage() {
         You&apos;ve read all my posts! Thank you for reading, fellow blogger!
         🚀🚀
       </ReadAll>
-    </>
+    </BlogDiv>
   );
 }
-
-const SectionHeading = styled.h2`
-  font-size: 50px;
-  font-family: Kamerik;
-  font-weight: 700;
-  margin: 80px auto 50px;
-`;
-
-const Featured = styled.section`
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-`;
-
-const featuredStandardAttributes = `
-    max-width: 320px;
-    height: 365px;
-    border: 5px solid transparent;
-    border-radius: 10px;
-    background-origin: border-box;
-    background-clip: padding-box, border-box;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
-`;
-
-const FeaturedBoxLeft = styled.div`
-  ${featuredStandardAttributes}
-  background-image: linear-gradient(#171a21, #171a21),
-    linear-gradient(128.61deg, #ef4439 -1.3%, #d131a4 107.39%);
-`;
-
-const FeaturedBoxCenter = styled.div`
-  ${featuredStandardAttributes}
-  background-image: linear-gradient(#171a21, #171a21),
-    linear-gradient(133.89deg, #c0327f -7.34%, #b631e4 104.15%);
-`;
-
-const FeaturedBoxRight = styled.div`
-  ${featuredStandardAttributes}
-  background-image: linear-gradient(#171a21, #171a21), 
-    linear-gradient(
-      133.06deg,
-      #b816e0 -1.11%,
-      #153fd3 52.54%,
-      #14ce96 101.15%
-    );
-`;
-
-const Blog = styled.div`
-  width: 100%;
-  height: 200px;
-  margin-bottom: 80px;
-`;
-
-const BlogTitle = styled.h2`
-  font-size: 30px;
-  font-family: Articulat, Arial;
-  font-weight: 600;
-  margin: 0;
-`;
-
-const BlogContent = styled.p`
-  font-size: 21px;
-  font-family: Articulat, Arial;
-  font-weight: 400;
-  color: #bcbcbc;
-  margin: 30px 0;
-`;
-
-const ReadTime = styled.p`
-  font-size: 21px;
-  font-family: Articulat, Arial;
-  font-weight: 400;
-  color: #ababab;
-  margin-bottom: 0;
-  margin-top: auto;
-`;
-
-const AllPosts = styled.section`
-  width: 100%;
-`;
-
-const ReadAll = styled.h3`
-  width: 65%;
-  font-size: 27px;
-  font-family: Articulat, Arial;
-  font-weight: 400;
-  text-align: center;
-  margin: 80px auto;
-`;

@@ -137,6 +137,10 @@ export const Links = styled.div`
   width: 80%;
   display: flex;
   justify-content: space-around;
+
+  @media (${small}) {
+    margin: 0 auto;
+  }
 `;
 
 export const ProjectLink = styled.p`
@@ -144,6 +148,10 @@ export const ProjectLink = styled.p`
   font-family: Articulat, Arial;
   font-weight: 400;
   text-decoration: underline;
+
+  @media (${small}) {
+    text-align: center;
+  }
 `;
 
 export const CTA = styled.div`

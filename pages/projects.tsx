@@ -71,7 +71,7 @@ export default function ProjectsPage() {
             A simple website to log 1 - 3 appreciations of the day to remind me
             to be grateful to my girlfriend
           </ProjectText>
-          <ProjectLink style={{ marginLeft: '35px' }}>
+          <ProjectLink>
             <Link
               href='https://github.com/susantoscott/Hi-Patty'
               target='_blank'
@@ -103,7 +103,7 @@ export default function ProjectsPage() {
             char, building a string used for communication with people
             unfamiliar with ASL. Built using GrovePi.
           </ProjectText>
-          <ProjectLink style={{ marginLeft: '35px' }}>
+          <ProjectLink>
             <Link
               href='https://github.com/susantoscott/ASL-to-Text'
               target='_blank'

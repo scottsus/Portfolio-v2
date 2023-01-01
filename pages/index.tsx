@@ -35,6 +35,7 @@ import {
   Socials,
   SocialsRow,
 } from '../styles/indexStyles';
+import { Parallax, ParallaxProvider } from 'react-scroll-parallax';
 
 export default function HomePage() {
   return (
@@ -100,13 +101,17 @@ export default function HomePage() {
             height={80}
             alt='CarbonLink'
           />
-          <Image
-            className='shortLogo'
-            src='/imgs/companies/Sourcegraph.png'
-            width={80}
-            height={80}
-            alt='Sourcegraph'
-          />
+          <ParallaxProvider>
+            <Parallax rotate={[0, 360]}>
+              <Image
+                className='shortLogo'
+                src='/imgs/companies/Sourcegraph.png'
+                width={80}
+                height={80}
+                alt='Sourcegraph'
+              />
+            </Parallax>
+          </ParallaxProvider>
           <Image
             className='longLogo'
             src='/imgs/companies/Snap-Fitness.png'

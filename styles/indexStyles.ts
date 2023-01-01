@@ -141,6 +141,7 @@ export const CompanyLogos = styled.div`
     width: 100%;
     height: 100%;
     margin-top: 50px;
+    justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
     .longLogo {
@@ -148,9 +149,9 @@ export const CompanyLogos = styled.div`
       height: 80px;
     }
     .shortLogo {
-      width: 90px;
+      width: 80px;
       height: 80px;
-      margin: 40px auto;
+      margin: 40px 0;
     }
   }
 `;

@@ -35,6 +35,10 @@ const featuredStandardAttributes = `
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+
+  @media (${small}) {
+    width: 100%;
+  }
 `;
 
 export const FeaturedBoxLeft = styled.div`

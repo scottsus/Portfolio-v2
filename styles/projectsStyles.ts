@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 import { small, medium } from './responsive';
 
 export const ProjectsDiv = styled.section`
@@ -22,7 +23,7 @@ export const projectSkeleton = `
   }
 `;
 
-export const SpotlightContainer = styled.div`
+export const SpotlightContainer = styled(motion.div)`
   ${projectSkeleton}
   margin-top: 100px;
   background: linear-gradient(101.52deg, #9019f2 -3.55%, #4d78fc 103.61%);
@@ -38,7 +39,7 @@ export const SpotlightContainer = styled.div`
   }
 `;
 
-export const HiPattyContainer = styled.div`
+export const HiPattyContainer = styled(motion.div)`
   ${projectSkeleton}
   background: linear-gradient(101.52deg, #FF3263 -3.55%, #AF4DFC 103.61%);
   #hi-patty-img {
@@ -55,7 +56,7 @@ export const HiPattyContainer = styled.div`
   }
 `;
 
-export const ASLContainer = styled.div`
+export const ASLContainer = styled(motion.div)`
   ${projectSkeleton}
   background: linear-gradient(101.52deg, #F28119 -3.55%, #E4FC4D 103.61%);
   #asl-img {
@@ -71,7 +72,7 @@ export const ASLContainer = styled.div`
   }
 `;
 
-export const YelpCampContainer = styled.div`
+export const YelpCampContainer = styled(motion.div)`
   ${projectSkeleton}
   background: linear-gradient(101.52deg, #45EE75 -3.55%, #4D5FFC 103.61%);
   #yelp-img {

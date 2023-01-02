@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 import { faMoon } from '@fortawesome/free-solid-svg-icons';
@@ -8,7 +9,6 @@ import { small, medium } from '../styles/responsive';
 import { useRouter } from 'next/router';
 
 export default function Navbar() {
-  const router = useRouter();
   const [isExpanded, setIsExpanded] = useState(false);
   const toggle = () => {
     setIsExpanded((isExpanded) => !isExpanded);
@@ -24,39 +24,40 @@ export default function Navbar() {
           alt='Hamburger'
         />
       </Hamburger>
-      <Menu id={isExpanded ? 'nav-expanded' : 'nav-collapsed'}>
-        <Button className='nav-item'>
-          <ButtonText isActive={router.asPath === '/'}>
-            <Link href='/'>Home</Link>
-          </ButtonText>
-        </Button>
-        <Button className='nav-item'>
-          <ButtonText isActive={router.asPath === '/projects'}>
-            <Link href='/projects'>Projects</Link>
-          </ButtonText>
-        </Button>
-        <Button className='nav-item'>
-          <ButtonText isActive={router.asPath === '/blog'}>
-            <Link href='/blog'>Blog</Link>
-          </ButtonText>
-        </Button>
-        <Button className='nav-item'>
-          <ButtonText isActive={router.asPath === '/guestbook'}>
-            <Link href='/guestbook'>Guestbook</Link>
-          </ButtonText>
-        </Button>
-        <Button className='nav-item'>
-          <ButtonText>
-            <Link href={resumeLink} target='_blank'>
-              Resume
-            </Link>
-          </ButtonText>
-        </Button>
+      <Menu
+        id={isExpanded ? 'nav-expanded' : 'nav-collapsed'}
+        animate={isExpanded ? 'opened' : 'closed'}
+        // TODO: variants={menuMotion}
+      >
+        <NavItem href='/' text='Home' />
+        <NavItem href='/projects' text='Projects' />
+        <NavItem href='/blog' text='Blog' />
+        <NavItem href='/guestbook' text='Guestbook' />
+        <NavItem href={resumeLink} text='Resume' newTab />
       </Menu>
       <ThemeBox>
         <FontAwesomeIcon icon={faMoon} style={moonStyles} />
       </ThemeBox>
     </NavbarDiv>
+  );
+}
+
+interface INavItem {
+  href: string;
+  text: string;
+  newTab?: boolean;
+}
+
+function NavItem({ href, text, newTab }: INavItem) {
+  const router = useRouter();
+  return (
+    <Button className='nav-item'>
+      <ButtonText isActive={router.asPath === href}>
+        <Link href={href} target={newTab ? '_blank' : '_self'}>
+          {text}
+        </Link>
+      </ButtonText>
+    </Button>
   );
 }
 
@@ -91,7 +92,7 @@ const Hamburger = styled.button`
   }
 `;
 
-const Menu = styled.div`
+const Menu = styled(motion.div)`
   @media (${small}) {
     position: absolute;
     top: 80px;
@@ -109,7 +110,7 @@ const Menu = styled.div`
   }
 `;
 
-const Button = styled.button`
+const Button = styled(motion.button)`
   height: 30px;
   background-color: transparent;
   border: none;

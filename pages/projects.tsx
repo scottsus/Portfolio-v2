@@ -21,6 +21,7 @@ import {
 } from '../styles/projectsStyles';
 
 export default function ProjectsPage() {
+  // TODO: Add motions
   return (
     <ProjectsDiv>
       <Navbar />

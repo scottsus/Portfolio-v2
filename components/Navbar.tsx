@@ -1,23 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
 import Image from 'next/image';
 import { faMoon } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { small, medium } from '../styles/responsive';
+import { useRouter } from 'next/router';
 
 export default function Navbar() {
-  const [activeURL, setActiveURL] = useState('');
+  const router = useRouter();
   const [isExpanded, setIsExpanded] = useState(false);
   const toggle = () => {
     setIsExpanded((isExpanded) => !isExpanded);
   };
-
-  useEffect(() => {
-    const hrefParts = window.location.href.split('/');
-    const currentURL = hrefParts[hrefParts.length - 1];
-    setActiveURL(currentURL);
-  }, []);
 
   return (
     <NavbarDiv>
@@ -31,22 +26,22 @@ export default function Navbar() {
       </Hamburger>
       <Menu id={isExpanded ? 'nav-expanded' : 'nav-collapsed'}>
         <Button className='nav-item'>
-          <ButtonText isActive={activeURL === ''}>
+          <ButtonText isActive={router.asPath === '/'}>
             <Link href='/'>Home</Link>
           </ButtonText>
         </Button>
         <Button className='nav-item'>
-          <ButtonText isActive={activeURL === 'projects'}>
+          <ButtonText isActive={router.asPath === '/projects'}>
             <Link href='/projects'>Projects</Link>
           </ButtonText>
         </Button>
         <Button className='nav-item'>
-          <ButtonText isActive={activeURL === 'blog'}>
+          <ButtonText isActive={router.asPath === '/blog'}>
             <Link href='/blog'>Blog</Link>
           </ButtonText>
         </Button>
         <Button className='nav-item'>
-          <ButtonText isActive={activeURL === 'guestbook'}>
+          <ButtonText isActive={router.asPath === '/guestbook'}>
             <Link href='/guestbook'>Guestbook</Link>
           </ButtonText>
         </Button>
@@ -87,7 +82,7 @@ const NavbarDiv = styled.div`
 const Hamburger = styled.button`
   width: 39px;
   height: 29px;
-  padding: 2px;
+  padding: 0;
   background-color: transparent;
   display: none;
 

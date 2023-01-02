@@ -1,11 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
+import Image from 'next/image';
 import { faMoon } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { small, medium } from '../styles/responsive';
 
 export default function Navbar() {
   const [activeURL, setActiveURL] = useState('');
+  const [isExpanded, setIsExpanded] = useState(false);
+  const toggle = () => {
+    setIsExpanded((isExpanded) => !isExpanded);
+  };
 
   useEffect(() => {
     const hrefParts = window.location.href.split('/');
@@ -15,33 +21,43 @@ export default function Navbar() {
 
   return (
     <NavbarDiv>
-      <Button>
-        <ButtonText isActive={activeURL === ''}>
-          <Link href='/'>Home</Link>
-        </ButtonText>
-      </Button>
-      <Button>
-        <ButtonText isActive={activeURL === 'projects'}>
-          <Link href='/projects'>Projects</Link>
-        </ButtonText>
-      </Button>
-      <Button>
-        <ButtonText isActive={activeURL === 'blog'}>
-          <Link href='/blog'>Blog</Link>
-        </ButtonText>
-      </Button>
-      <Button>
-        <ButtonText isActive={activeURL === 'guestbook'}>
-          <Link href='/guestbook'>Guestbook</Link>
-        </ButtonText>
-      </Button>
-      <Button>
-        <ButtonText>
-          <Link href={resumeLink} target='_blank'>
-            Resume
-          </Link>
-        </ButtonText>
-      </Button>
+      <Hamburger onClick={toggle}>
+        <Image
+          src='/imgs/Hamburger.svg'
+          height={25}
+          width={35}
+          alt='Hamburger'
+        />
+      </Hamburger>
+      <Menu id={isExpanded ? 'nav-expanded' : 'nav-collapsed'}>
+        <Button className='nav-item'>
+          <ButtonText isActive={activeURL === ''}>
+            <Link href='/'>Home</Link>
+          </ButtonText>
+        </Button>
+        <Button className='nav-item'>
+          <ButtonText isActive={activeURL === 'projects'}>
+            <Link href='/projects'>Projects</Link>
+          </ButtonText>
+        </Button>
+        <Button className='nav-item'>
+          <ButtonText isActive={activeURL === 'blog'}>
+            <Link href='/blog'>Blog</Link>
+          </ButtonText>
+        </Button>
+        <Button className='nav-item'>
+          <ButtonText isActive={activeURL === 'guestbook'}>
+            <Link href='/guestbook'>Guestbook</Link>
+          </ButtonText>
+        </Button>
+        <Button className='nav-item'>
+          <ButtonText>
+            <Link href={resumeLink} target='_blank'>
+              Resume
+            </Link>
+          </ButtonText>
+        </Button>
+      </Menu>
       <ThemeBox>
         <FontAwesomeIcon icon={faMoon} style={moonStyles} />
       </ThemeBox>
@@ -57,10 +73,49 @@ const NavbarDiv = styled.div`
   flex-direction: row;
   justify-content: start;
   align-items: center;
+
+  @media (${small}) {
+    #nav-collapsed {
+      display: none;
+    }
+    #nav-expanded {
+      display: flex;
+    }
+  }
+`;
+
+const Hamburger = styled.button`
+  width: 39px;
+  height: 29px;
+  padding: 2px;
+  background-color: transparent;
+  display: none;
+
+  @media (${small}) {
+    display: inline;
+  }
+`;
+
+const Menu = styled.div`
+  @media (${small}) {
+    position: absolute;
+    top: 80px;
+    width: 100%;
+    height: 100vh;
+    padding-left: 4px;
+    background-color: #181a21;
+    opacity: 0.9;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    .nav-item {
+      margin: 15px 0;
+    }
+  }
 `;
 
 const Button = styled.button`
-  height: 100%;
+  height: 30px;
   background-color: transparent;
   border: none;
   border-radius: 10px;

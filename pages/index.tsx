@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import TypedStrings from '../components/TypedStrings';
 import Navbar from '../components/Navbar';
 import Image from 'next/image';
@@ -8,6 +8,8 @@ import { tsCode, goCode, javaCode } from '../lib/codeSnippets';
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import HandWave from '../components/HandWave';
+import { Parallax, ParallaxProvider } from 'react-scroll-parallax';
+import Mailchimp, { EmailFormFields } from 'react-mailchimp-subscribe';
 import {
   HomePageDiv,
   Hero,
@@ -35,7 +37,6 @@ import {
   Socials,
   SocialsRow,
 } from '../styles/indexStyles';
-import { Parallax, ParallaxProvider } from 'react-scroll-parallax';
 
 export default function HomePage() {
   return (
@@ -168,15 +169,12 @@ export default function HomePage() {
             &emsp;but <span id='green'>just in time</span> to write these weekly
             newsletters.
           </TimingText>
-          <EmailForm>
-            <InputBar type='text' placeholder='brucewayne@batman.com' />
-            <SubmitButton>
-              <FontAwesomeIcon
-                icon={faPaperPlane}
-                style={{ fontSize: '18px', color: '#222632' }}
-              />
-            </SubmitButton>
-          </EmailForm>
+          <Mailchimp
+            url={mailChimpURL}
+            render={(props) => {
+              return <NewsLetterForm subscribe={props.subscribe} />;
+            }}
+          />
           <ConsiderText>
             <HandWave />
             Consider subscribing and let&apos;s change the world together!
@@ -238,5 +236,34 @@ export default function HomePage() {
         </SocialsRow>
       </Socials>
     </HomePageDiv>
+  );
+}
+
+const mailChimpURL = process.env.NEXT_PUBLIC_MAILCHIMP_URL || '';
+
+interface INewsLetterForm {
+  subscribe: (data: EmailFormFields) => void;
+}
+
+function NewsLetterForm({ subscribe }: INewsLetterForm) {
+  return (
+    <EmailForm
+      onSubmit={(event) => {
+        event.preventDefault();
+        const target = event.target as typeof event.target & {
+          email: { value: string };
+        };
+        const email = target.email.value;
+        subscribe({ EMAIL: email });
+      }}
+    >
+      <InputBar name='email' type='text' placeholder='brucewayne@batman.com' />
+      <SubmitButton type='submit'>
+        <FontAwesomeIcon
+          icon={faPaperPlane}
+          style={{ fontSize: '18px', color: '#222632' }}
+        />
+      </SubmitButton>
+    </EmailForm>
   );
 }

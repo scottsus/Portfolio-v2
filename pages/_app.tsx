@@ -7,7 +7,7 @@ export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
   const meta = {
     title: 'Scott Susanto',
-    description: 'Software Developer, Technical Co-founder, Entrepreneur',
+    description: 'Software Developer, Technical Co-founder',
     image: '/imgs/DP.png',
     type: 'website',
   };

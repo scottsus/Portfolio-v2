@@ -46,6 +46,10 @@ export const LoginText = styled.h4`
   margin: 0 auto;
 `;
 
+export const InputComment = styled.h1`
+  color: red;
+`;
+
 export const Disclaimer = styled.p`
   font-size: 17px;
   font-family: Articulat, Arial;

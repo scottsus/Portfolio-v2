@@ -2,8 +2,12 @@ import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
+import { SessionProvider } from 'next-auth/react';
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({
+  Component,
+  pageProps: { session, ...pageProps },
+}: AppProps) {
   const router = useRouter();
   const meta = {
     title: 'Scott Susanto',
@@ -37,7 +41,9 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta name='twitter:description' content={meta.description} />
         <meta name='twitter:image' content={meta.image} />
       </Head>
-      <Component {...pageProps} />
+      <SessionProvider session={session}>
+        <Component {...pageProps} />
+      </SessionProvider>
     </>
   );
 }

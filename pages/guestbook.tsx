@@ -1,4 +1,5 @@
 import React from 'react';
+import Auth from '../components/Auth';
 import Navbar from '../components/Navbar';
 import { Title, Subtitle } from '../components/TypicalPage';
 import {
@@ -28,9 +29,7 @@ export default function GuestbookPage() {
       </Subtitle>
       <MessageBox>
         <Lend>✒️ Lend me your digital autograph</Lend>
-        <LoginButton>
-          <LoginText>LOGIN</LoginText>
-        </LoginButton>
+        <Auth />
         <Disclaimer>
           Your information is only used to display your alias, nothing more.
         </Disclaimer>

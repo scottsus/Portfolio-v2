@@ -1,12 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import TypedStrings from '../components/TypedStrings';
 import Navbar from '../components/Navbar';
 import Image from 'next/image';
 import Link from 'next/link';
 import CodeSnippet from '../components/CodeSnippet';
 import { tsCode, goCode, javaCode } from '../lib/codeSnippets';
-import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import HandWave from '../components/HandWave';
 import { Parallax, ParallaxProvider } from 'react-scroll-parallax';
 import Mailchimp, { EmailFormFields } from 'react-mailchimp-subscribe';
@@ -37,6 +35,7 @@ import {
   Socials,
   SocialsRow,
 } from '../styles/indexStyles';
+import InlineInput from '../components/InputBar';
 
 export default function HomePage() {
   return (
@@ -246,24 +245,18 @@ interface INewsLetterForm {
 }
 
 function NewsLetterForm({ subscribe }: INewsLetterForm) {
+  const formOnSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+    const target = event.target as typeof event.target & {
+      email: { value: string };
+    };
+    const email = target.email.value;
+    subscribe({ EMAIL: email });
+  };
   return (
-    <EmailForm
-      onSubmit={(event) => {
-        event.preventDefault();
-        const target = event.target as typeof event.target & {
-          email: { value: string };
-        };
-        const email = target.email.value;
-        subscribe({ EMAIL: email });
-      }}
-    >
-      <InputBar name='email' type='text' placeholder='brucewayne@batman.com' />
-      <SubmitButton type='submit'>
-        <FontAwesomeIcon
-          icon={faPaperPlane}
-          style={{ fontSize: '18px', color: '#222632' }}
-        />
-      </SubmitButton>
-    </EmailForm>
+    <InlineInput
+      formOnSubmit={formOnSubmit}
+      placeholder='brucewayne@batman.com'
+    />
   );
 }

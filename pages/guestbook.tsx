@@ -1,7 +1,8 @@
 import React from 'react';
-import Auth from '../components/Auth';
+import InlineInput from '../components/InputBar';
 import Navbar from '../components/Navbar';
 import { Title, Subtitle } from '../components/TypicalPage';
+import { useSession, signIn } from 'next-auth/react';
 import {
   GuestbookDiv,
   MessageBox,
@@ -29,7 +30,7 @@ export default function GuestbookPage() {
       </Subtitle>
       <MessageBox>
         <Lend>✒️ Lend me your digital autograph</Lend>
-        <Auth />
+        <CommentForm />
         <Disclaimer>
           Your information is only used to display your alias, nothing more.
         </Disclaimer>
@@ -53,5 +54,34 @@ export default function GuestbookPage() {
         </Comment>
       </Guestbook>
     </GuestbookDiv>
+  );
+}
+
+function CommentForm() {
+  const session = useSession();
+  const formOnSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+    const target = event.target as typeof event.target & {
+      comment: { value: string };
+    };
+    const comment = target.comment.value;
+    console.log('Comment:', comment);
+  };
+  if (session.status !== 'authenticated')
+    return (
+      <LoginButton
+        onClick={(e) => {
+          e.preventDefault();
+          signIn('google');
+        }}
+      >
+        <LoginText>LOGIN</LoginText>
+      </LoginButton>
+    );
+  return (
+    <InlineInput
+      formOnSubmit={formOnSubmit}
+      placeholder='🔥 this is an awesome feature!'
+    />
   );
 }

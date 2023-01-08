@@ -250,7 +250,6 @@ function NewsLetterForm({ subscribe }: INewsLetterForm) {
     const email = target.email.value;
     subscribe({ EMAIL: email });
   };
-  useEffect(() => console.log('ENV:', mailChimpURL));
   return (
     <InlineInput
       formOnSubmit={formOnSubmit}

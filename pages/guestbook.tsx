@@ -1,22 +1,64 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import InlineInput from '../components/InputBar';
 import Navbar from '../components/Navbar';
 import { Title, Subtitle } from '../components/TypicalPage';
-import { useSession, signIn } from 'next-auth/react';
 import {
   GuestbookDiv,
   MessageBox,
-  Lend,
-  LoginButton,
-  LoginText,
-  Disclaimer,
   Guestbook,
   Comment,
   Text,
   Metadata,
+  Lend,
+  LoginButton,
+  LoginText,
+  Disclaimer,
 } from '../styles/guestbookStyles';
+import { useSession, signIn } from 'next-auth/react';
+import { db } from '../lib/firebase';
+import { docToAutograph } from '../lib/utils';
 
-export default function GuestbookPage() {
+const LIMIT = 10;
+
+interface IAutograph {
+  email: string;
+  comment: string;
+  date?: string;
+}
+
+export async function getServerSideProps() {
+  const autographsQuery = db
+    .collectionGroup('autographs')
+    .orderBy('timestamp', 'desc')
+    .limit(LIMIT);
+  const autographs: IAutograph[] = await autographsQuery
+    .get()
+    .then((snapshot) => snapshot.docs.map(docToAutograph));
+  return {
+    props: { autographs },
+  };
+}
+
+interface IGuestbookPage {
+  autographs: IAutograph[];
+}
+
+export default function GuestbookPage({ autographs }: IGuestbookPage) {
+  const [autographList, setAutographList] = useState<JSX.Element[]>([]);
+  const newAutographs = autographs.map((autograph: IAutograph) => {
+    const author = autograph.email.split('@')[0];
+    return (
+      <Comment>
+        <Text>{autograph.comment}</Text>
+        <Metadata>
+          {author} on {autograph.date}
+        </Metadata>
+      </Comment>
+    );
+  });
+  useEffect(() => {
+    setAutographList(newAutographs);
+  }, []);
   return (
     <GuestbookDiv>
       <Navbar />
@@ -35,24 +77,7 @@ export default function GuestbookPage() {
           Your information is only used to display your alias, nothing more.
         </Disclaimer>
       </MessageBox>
-      <Guestbook>
-        <Comment>
-          <Text>🚀🚀 Insane!!</Text>
-          <Metadata>wilsoset on December 27, 2022</Metadata>
-        </Comment>
-        <Comment>
-          <Text>💩 this website is shit</Text>
-          <Metadata>caitlintj on December 25, 2022</Metadata>
-        </Comment>
-        <Comment>
-          <Text>⏰ what a waste of time</Text>
-          <Metadata>yikespatricia on December 28, 2022</Metadata>
-        </Comment>
-        <Comment>
-          <Text>🏳️ please check who attended the dim sum event</Text>
-          <Metadata>siyunee on December 24, 2022</Metadata>
-        </Comment>
-      </Guestbook>
+      <Guestbook>{autographList}</Guestbook>
     </GuestbookDiv>
   );
 }
@@ -65,7 +90,6 @@ function CommentForm() {
       comment: { value: string };
     };
     const comment = target.comment.value;
-    console.log('Comment:', comment);
   };
   if (session.status !== 'authenticated')
     return (

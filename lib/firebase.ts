@@ -11,6 +11,15 @@ const firebaseConfig = {
   measurementId: 'G-TZY3Q1030Y',
 };
 
+const newFirebaseConfig = {
+  apiKey: 'AIzaSyD2SiUeqFtszLc7vHhyIb7TQ5r0lmLw4MM',
+  authDomain: 'portfolio-guestbook-373721.firebaseapp.com',
+  projectId: 'portfolio-guestbook-373721',
+  storageBucket: 'portfolio-guestbook-373721.appspot.com',
+  messagingSenderId: '608968069585',
+  appId: '1:608968069585:web:ea90b6650682c74ae850f0',
+  measurementId: 'G-0Y6DNBS1NJ',
+};
+
 firebase.initializeApp(firebaseConfig);
-export const auth = firebase.auth();
 export const db = firebase.firestore();

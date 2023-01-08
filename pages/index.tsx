@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import TypedStrings from '../components/TypedStrings';
 import Navbar from '../components/Navbar';
 import Image from 'next/image';
@@ -28,9 +28,6 @@ import {
   TextArea,
   OrElse,
   TimingText,
-  EmailForm,
-  InputBar,
-  SubmitButton,
   ConsiderText,
   Socials,
   SocialsRow,
@@ -253,6 +250,7 @@ function NewsLetterForm({ subscribe }: INewsLetterForm) {
     const email = target.email.value;
     subscribe({ EMAIL: email });
   };
+  useEffect(() => console.log('ENV:', mailChimpURL));
   return (
     <InlineInput
       formOnSubmit={formOnSubmit}

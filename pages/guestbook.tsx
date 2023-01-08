@@ -15,7 +15,7 @@ import {
   Disclaimer,
 } from '../styles/guestbookStyles';
 import { useSession, signIn } from 'next-auth/react';
-import { db } from '../lib/firebase';
+import { db, serverTimestamp } from '../lib/firebase';
 import { docToAutograph } from '../lib/utils';
 
 const LIMIT = 10;
@@ -48,7 +48,7 @@ export default function GuestbookPage({ autographs }: IGuestbookPage) {
   const newAutographs = autographs.map((autograph: IAutograph) => {
     const author = autograph.email.split('@')[0];
     return (
-      <Comment>
+      <Comment key={autograph.comment + '|' + author}>
         <Text>{autograph.comment}</Text>
         <Metadata>
           {author} on {autograph.date}
@@ -72,7 +72,7 @@ export default function GuestbookPage({ autographs }: IGuestbookPage) {
       </Subtitle>
       <MessageBox>
         <Lend>✒️ Lend me your digital autograph</Lend>
-        <CommentForm />
+        <CommentForm setAutographList={setAutographList} />
         <Disclaimer>
           Your information is only used to display your alias, nothing more.
         </Disclaimer>
@@ -82,15 +82,52 @@ export default function GuestbookPage({ autographs }: IGuestbookPage) {
   );
 }
 
-function CommentForm() {
+interface ICommentForm {
+  setAutographList: React.Dispatch<React.SetStateAction<JSX.Element[]>>;
+}
+
+function CommentForm({ setAutographList }: ICommentForm) {
   const session = useSession();
-  const formOnSubmit = (event: React.FormEvent) => {
+  const formOnSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     const target = event.target as typeof event.target & {
       comment: { value: string };
     };
     const comment = target.comment.value;
+    target.comment.value = '';
+
+    const data = {
+      comment: comment,
+      email: session.data?.user?.email || 'unkw@unkw.com',
+      timestamp: serverTimestamp(),
+    };
+
+    await db
+      .collection('autographs')
+      .add(data)
+      .catch((err) => {
+        console.log(err);
+        return;
+      });
+
+    const newAutograph = (
+      <Comment>
+        <Text>{data.comment}</Text>
+        <Metadata>
+          {data.email.split('@')[0]} on{' '}
+          {new Date().toLocaleDateString('en-us', {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric',
+          })}
+        </Metadata>
+      </Comment>
+    );
+
+    setAutographList((autographList) => [newAutograph, ...autographList]);
   };
+
   if (session.status !== 'authenticated')
     return (
       <LoginButton

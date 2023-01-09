@@ -71,19 +71,19 @@ export default function HomePage() {
           Hey there!
         </AboutText>
         <AboutText>
-          I'm Scott, a 4th year 💻 Computer Engineering & Computer Science
+          I&apos;m Scott, a 4th year 💻 Computer Engineering & Computer Science
           student at the University of Southern California. ⚡️ Ambition, 🛠
           entrepreneurship, and 📚 scholarship zeal are the centerpieces of my
           educational journey as I endeavor to engineer practical solutions for
-          the world's myriad of complex problems. Currently, my domains of
+          the world&apos;s myriad of complex problems. Currently, my domains of
           expertise includes Software Engineering, Web Development, Distributed
           Systems & IoT, and Machine Learning.
         </AboutText>
         <AboutText>
-          Outside of work, I'm an 🪂 enthusiastic skydiver, 🏃 marathon runner,
-          and 🧑‍🍳 amateur baker. Actively looking to develop my own tech startup
-          and drop out of school, retiring as a part-time VC investor at the age
-          of 30.
+          Outside of work, I&apos;m an 🪂 enthusiastic skydiver, 🏃 marathon
+          runner, and 🧑‍🍳 amateur baker. Actively looking to develop my own tech
+          startup and drop out of school, retiring as a part-time VC investor at
+          the age of 30.
         </AboutText>
       </About>
       <Experiences>

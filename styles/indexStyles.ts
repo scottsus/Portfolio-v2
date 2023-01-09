@@ -52,7 +52,7 @@ export const typedSubtitles = [
 ];
 
 export const About = styled.section`
-  height: 360px;
+  height: 100%;
   border-radius: 20px;
   background-color: #222632;
   margin: 35px auto 0;
@@ -86,9 +86,10 @@ export const TerminalCode = styled.p`
 `;
 
 export const AboutText = styled.p`
-  font-size: 21px;
+  font-size: 19px;
   font-family: Kamerik;
   font-weight: 400;
+  line-height: 1.5;
   margin: 20px 0;
 
   @media (${small}) {

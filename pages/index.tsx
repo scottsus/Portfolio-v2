@@ -66,17 +66,24 @@ export default function HomePage() {
             <TypedStrings id='typed-whoami' strings={['whoami?']} speed={300} />
           </TerminalCode>
         </Terminal>
-        <AboutText>
-          🚀 Lorem ipsum dolor, sit amet consectetur adipisicing elit. 🔮
-          Voluptate voluptatibus aliquam aperiam est corrupti fugiat, voluptas
-          rerum excepturi sint in non quae cum fuga! Blanditiis dolor maiores
-          veritatis consequuntur nisi! ❄️
+        <AboutText style={{ fontSize: '25px' }}>
+          <HandWave />
+          Hey there!
         </AboutText>
         <AboutText>
-          ✈️ Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti,
-          ab esse sint veniam deserunt tempore error earum ipsa magnam sapiente
-          autem expedita provident rerum beatae quo maxime quibusdam aut
-          tenetur. 🔭
+          I'm Scott, a 4th year 💻 Computer Engineering & Computer Science
+          student at the University of Southern California. ⚡️ Ambition, 🛠
+          entrepreneurship, and 📚 scholarship zeal are the centerpieces of my
+          educational journey as I endeavor to engineer practical solutions for
+          the world's myriad of complex problems. Currently, my domains of
+          expertise includes Software Engineering, Web Development, Distributed
+          Systems & IoT, and Machine Learning.
+        </AboutText>
+        <AboutText>
+          Outside of work, I'm an 🪂 enthusiastic skydiver, 🏃 marathon runner,
+          and 🧑‍🍳 amateur baker. Actively looking to develop my own tech startup
+          and drop out of school, retiring as a part-time VC investor at the age
+          of 30.
         </AboutText>
       </About>
       <Experiences>

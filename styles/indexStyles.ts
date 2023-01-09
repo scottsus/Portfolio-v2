@@ -86,7 +86,7 @@ export const TerminalCode = styled.p`
 `;
 
 export const AboutText = styled.p`
-  font-size: 19px;
+  font-size: 17px;
   font-family: Kamerik;
   font-weight: 400;
   line-height: 1.5;

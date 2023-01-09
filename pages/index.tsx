@@ -66,7 +66,7 @@ export default function HomePage() {
             <TypedStrings id='typed-whoami' strings={['whoami?']} speed={300} />
           </TerminalCode>
         </Terminal>
-        <AboutText style={{ fontSize: '25px' }}>
+        <AboutText style={{ fontSize: '22px' }}>
           <HandWave />
           Hey there!
         </AboutText>

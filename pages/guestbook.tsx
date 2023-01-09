@@ -67,8 +67,8 @@ export default function GuestbookPage({ autographs }: IGuestbookPage) {
         This is my way of remembering that you were here. No cookies, no
         trackers, no data collection. Feel free to leave a comment below, or
         don&apos;t. But when I&apos;m rich and famous one day, I&apos;ll
-        remember that brucewayne@batman.com, and possibly you, were my earliest
-        patrons. 🦇 🫵
+        remember that <span style={{ color: '#ffffff' }}>brucewayne69</span>,
+        and possibly you, were my earliest patrons. 🦇 🫵
       </Subtitle>
       <MessageBox>
         <Lend>✒️ Lend me your digital autograph</Lend>

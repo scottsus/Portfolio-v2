@@ -18,10 +18,10 @@ export default function Navbar() {
     <NavbarDiv>
       <Hamburger onClick={toggle}>
         <Image
-          src='/imgs/Hamburger.svg'
+          src="/imgs/Hamburger.svg"
           height={25}
           width={35}
-          alt='Hamburger'
+          alt="Hamburger"
         />
       </Hamburger>
       <Menu
@@ -29,11 +29,11 @@ export default function Navbar() {
         animate={isExpanded ? 'opened' : 'closed'}
         // TODO: variants={menuMotion}
       >
-        <NavItem href='/' text='Home' />
-        <NavItem href='/projects' text='Projects' />
-        <NavItem href='/blog' text='Blog' />
-        <NavItem href='/guestbook' text='Guestbook' />
-        <NavItem href={resumeLink} text='Resume' newTab />
+        <NavItem href="/" text="Home" />
+        <NavItem href="/projects" text="Projects" />
+        <NavItem href="/blog" text="Blog" />
+        <NavItem href="/guestbook" text="Guestbook" />
+        <NavItem href={resumeLink} text="Resume" newTab />
       </Menu>
       <ThemeBox>
         <FontAwesomeIcon icon={faMoon} style={moonStyles} />
@@ -51,7 +51,7 @@ interface INavItem {
 function NavItem({ href, text, newTab }: INavItem) {
   const router = useRouter();
   return (
-    <Button className='nav-item'>
+    <Button className="nav-item">
       <ButtonText isActive={router.asPath === href}>
         <Link href={href} target={newTab ? '_blank' : '_self'}>
           {text}
@@ -158,4 +158,4 @@ const moonStyles: React.CSSProperties = {
 };
 
 const resumeLink =
-  'https://docs.google.com/document/d/1xABG43h-ft8hQ5mHonDfLTCciuWnraxslb_tuDYxF_w/';
+  'https://docs.google.com/document/d/1jtBQaUDuxlsMYy27LhJeqUmIQcbbzVReoLEOY9zM5hE/';
